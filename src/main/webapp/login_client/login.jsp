@@ -25,7 +25,7 @@
     <main class="form-signin">
 
       <form id="formulario" method="POST" name="formulario"
-        action="http://localhost:8080/ProjetoEcommerceGGT/Login"
+        action="Login"
       >
         <h1 class="h3 mb-3 fw-normal">Por favor, faça login</h1>
 

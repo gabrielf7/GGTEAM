@@ -50,7 +50,7 @@
           <hr class="my-2">
           <h2 class="mb-2">Crie sua conta</h2>
           <form name="FormUsuario"
-            action="http://localhost:8080/ProjetoEcommerceGGT/Cliente" method="POST"
+            action="Cliente" method="POST"
             class="needs-validation"
           >
             <div class="row">

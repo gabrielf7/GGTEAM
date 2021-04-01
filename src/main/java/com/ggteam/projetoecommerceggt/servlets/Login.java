@@ -3,14 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.ggteam.projetoecommerceggt.servlet;
+package com.ggteam.projetoecommerceggt.servlets;
 
-import com.ggteam.projetoecommerceggt.model.UsuarioCliente;
+import com.ggteam.projetoecommerceggt.models.UsuarioCliente;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -79,7 +78,7 @@ public class Login extends HttpServlet {
           out.println("<html>");
           out.println("<head>");
           out.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">");
-          out.println("<meta http-equiv=\"Refresh\" content=\"0;URL=http://localhost:8080/ProjetoEcommerceGGT/home.jsp\">");
+          out.println("<meta http-equiv=\"Refresh\" content=\"0;URL=home.jsp\">");
           out.println("</head>");
           out.println("<body>");
           out.println("</body>");

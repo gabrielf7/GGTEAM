@@ -1,10 +1,9 @@
-package com.ggteam.projetoecommerceggt.servlet;
+package com.ggteam.projetoecommerceggt.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,7 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 // Model
-import com.ggteam.projetoecommerceggt.model.UsuarioCliente;
+import com.ggteam.projetoecommerceggt.models.UsuarioCliente;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 /**
