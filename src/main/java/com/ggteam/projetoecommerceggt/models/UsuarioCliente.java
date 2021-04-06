@@ -10,7 +10,11 @@ import javax.persistence.Table;
 
 /**
  *
- * @author JoaoGabriel
+ * @author on github *
+ * -> @gabrielf7 (JoaoGabriel)
+ * -> @jvpererinha (JoaoVictorD.)
+ * -> @gustavo3g (GustavoBarros)
+ * -> @ (TallysSilva)
  */
 @Entity
 @Table(name="tab_usuarioCLT")

@@ -1,7 +1,6 @@
 package com.ggteam.projetoecommerceggt.servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -16,33 +15,32 @@ import com.ggteam.projetoecommerceggt.models.UsuarioCliente;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import javax.servlet.RequestDispatcher;
 /**
  *
- * @author JoaoGabriel
+ * @author on github *
+ * -> @gabrielf7 (JoaoGabriel)
+ * -> @jvpererinha (JoaoVictorD.)
+ * -> @gustavo3g (GustavoBarros)
+ * -> @ (TallysSilva)
  */
 @WebServlet(name = "Cliente", urlPatterns = {"/Cliente"})
 public class Cliente extends HttpServlet {
+
   private EntityManager getEntityManager() {
-      //Obtém o factory a partir da unidade de persistência.
-      EntityManagerFactory factory = Persistence.createEntityManagerFactory("ProjetoEcommerceGGT");
-      //Cria um entity manager.
-      EntityManager entityManager = factory.createEntityManager();
+    //Obtém o factory a partir da unidade de persistência.
+    EntityManagerFactory factory = Persistence.createEntityManagerFactory(
+      "ProjetoEcommerceGGT"
+    );
+    //Cria um entity manager.
+    EntityManager entityManager = factory.createEntityManager();
 
-      return entityManager;
-    }
-  
-
-  @Override
-  protected void doGet(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
-
-    
+    return entityManager;
   }
 
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-    response.setContentType("text/html");
 
     EntityManager entityManager = getEntityManager();
 
@@ -70,58 +68,27 @@ public class Cliente extends HttpServlet {
       usr_cliente.setLocalidade(cidade + ", " + estado);
       usr_cliente.setUltimoAcesso(formato.format(dataHoje));
       
-      // Inicia uma transação com o banco de dados.
-      entityManager.getTransaction().begin();
-      // Verifica se usuario tem o nome salvo no banco de dados.
-      if ( (email != null) && (cpf != null) ) {
+      // System.out.println("result: " + request.getContextPath());
+      
+      // Verificar se os campos foram preenchidos corretamente.
+      if ( email == null || cpf == null ) {
+        response.sendRedirect(request.getContextPath() + "/login_client/cadastrar_client/cadastro_client.jsp");
+      } else {
+        // Inicia uma transação com o banco de dados.
+        entityManager.getTransaction().begin();
         entityManager.persist(usr_cliente);
         entityManager.getTransaction().commit();
-        
-        try (PrintWriter out = response.getWriter()) {
-          out.println("<!DOCTYPE html>");
-          out.println("<html>");
-          out.println("<head>");
-          out.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">");
-          out.println("<meta http-equiv=\"Refresh\" content=\"0;URL=login/login.jsp\">");
-          out.println("</head>");
-          out.println("<body>");
-          out.println("</body>");
-          out.println("</html>");
-          out.close();
-        }
-      } else {
-        try (PrintWriter out = response.getWriter()) {
-          out.println("<!DOCTYPE html>");
-          out.println("<html>");
-          out.println("<head>");
-          out.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">");
-          out.println("<meta http-equiv=\"Refresh\" content=\"0;URL=login/cadastrar_login/cadastro.jsp\">");
-          out.println("</head>");
-          out.println("<body>");
-          out.println("</body>");
-          out.println("</html>");
-          out.close();
-        }
+
+        response.sendRedirect(request.getContextPath() + "/login_client/login.jsp");
       }
     } finally {
       // Fecha conexão
       if (entityManager.getTransaction().isActive()) {
         entityManager.getTransaction().rollback();
       }
+      
       entityManager.close();
     }
-  }
-  
-  @Override
-  protected void doPut(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
-
-  }
-
-  @Override
-  protected void doDelete(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
-
   }
 
   @Override

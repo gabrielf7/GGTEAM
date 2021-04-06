@@ -19,29 +19,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js"></script>
     
     <!-- Custom styles for this template -->
-    <link href="form-validation.css" rel="stylesheet">
-    <style>
-      body {
-        max-width: 960px;
-      }
-      .needs-validation a {
-        text-decoration: none;
-      }
-      input[type=number]::-webkit-inner-spin-button { 
-        -webkit-appearance: none;
-      }
-      input[type=number] { 
-        -moz-appearance: textfield;
-        appearance: textfield;
-      }
-    </style>
+    <link href="${pageContext.request.contextPath}/css/form-validation.css" rel="stylesheet">
   </head>
   <body class="container bg-light">
     <main>
 
       <div class="row g-5">
         <div class="col-md-4 h-50 col-lg-4 d-flex center">
-          <img src="../../assets/user-bag.png" />
+          <img src="${pageContext.request.contextPath}/assets/user-bag.png" />
         </div>
         <div class="col-md-8 col-lg-8">
           <a class="w-100 mt-4 btn btn-primary btn-lg" href="../login.jsp">
@@ -50,7 +35,7 @@
           <hr class="my-2">
           <h2 class="mb-2">Crie sua conta</h2>
           <form name="FormUsuario"
-            action="Cliente" method="POST"
+            action="${pageContext.request.contextPath}/Cliente" method="POST"
             class="needs-validation"
           >
             <div class="row">
@@ -145,6 +130,6 @@
 
     </main>
     
-    <script src="form-validation.js"></script>
+    <script src="${pageContext.request.contextPath}/js/form-validation.js"></script>
   </body>
 </html>

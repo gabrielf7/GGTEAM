@@ -1,10 +1,17 @@
+body {
+  max-width: 960px;
+}
+.needs-validation a {
+  text-decoration: none;
+}
+input[type=number]::-webkit-inner-spin-button { 
+  -webkit-appearance: none;
+}
+input[type=number] { 
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
 .container {
   max-width: 1120px;
 }
 
-/*
-.needs-validation a {
-  text-decoration: none;
-  background-color: blue;
-}
-*/
