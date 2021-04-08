@@ -24,6 +24,14 @@ import javax.persistence.Persistence;
 @WebServlet(name = "Login", urlPatterns = {"/Login"})
 public class Login extends HttpServlet {
   
+  @Override
+  protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    throws ServletException, IOException {
+    response.setContentType("text/html;charset=UTF-8");
+
+    request.getRequestDispatcher("login_client/login.jsp").include(request, response);
+  }
+  
   public EntityManager getEntityManager() {
     //Obtém o factory a partir da unidade de persistência.
     EntityManagerFactory factory = Persistence.createEntityManagerFactory(
@@ -66,7 +74,7 @@ public class Login extends HttpServlet {
       System.out.println("Error ao fazer login" + validoUser);
     } else {
       System.out.println("Logado o CLiente");
-      response.sendRedirect(request.getContextPath() + "/home.jsp");
+      response.sendRedirect(request.getContextPath() + "/Home");
     }
   }
   

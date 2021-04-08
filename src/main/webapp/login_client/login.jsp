@@ -49,7 +49,7 @@
         <button class="w-100 btn btn-lg btn-primary" type="submit">
           Fazer Logon
         </button>
-        <a href="${pageContext.request.contextPath}/login_client/cadastrar_client/cadastro_client.jsp">
+        <a href="${pageContext.request.contextPath}/Cliente">
           Está de fora? cadastra-se aqui...
         </a>
         <footer class="pt-5 text-muted text-center text-small">

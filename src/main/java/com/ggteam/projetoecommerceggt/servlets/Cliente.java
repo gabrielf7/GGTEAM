@@ -15,7 +15,7 @@ import com.ggteam.projetoecommerceggt.models.UsuarioCliente;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import javax.servlet.RequestDispatcher;
+
 /**
  *
  * @author on github *
@@ -26,6 +26,14 @@ import javax.servlet.RequestDispatcher;
  */
 @WebServlet(name = "Cliente", urlPatterns = {"/Cliente"})
 public class Cliente extends HttpServlet {
+  
+  @Override
+  protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    throws ServletException, IOException {
+    response.setContentType("text/html;charset=UTF-8");
+
+    request.getRequestDispatcher("/login_client/cadastrar_client/cadastro_client.jsp").include(request, response);
+  }
 
   private EntityManager getEntityManager() {
     //Obtém o factory a partir da unidade de persistência.
@@ -72,14 +80,14 @@ public class Cliente extends HttpServlet {
       
       // Verificar se os campos foram preenchidos corretamente.
       if ( email == null || cpf == null ) {
-        response.sendRedirect(request.getContextPath() + "/login_client/cadastrar_client/cadastro_client.jsp");
+        response.sendRedirect(request.getContextPath() + "/Cliente");
       } else {
         // Inicia uma transação com o banco de dados.
         entityManager.getTransaction().begin();
         entityManager.persist(usr_cliente);
         entityManager.getTransaction().commit();
 
-        response.sendRedirect(request.getContextPath() + "/login_client/login.jsp");
+        response.sendRedirect(request.getContextPath() + "/Login");
       }
     } finally {
       // Fecha conexão
