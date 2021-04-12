@@ -6,6 +6,6 @@
   <display-name>Home | More Shop</display-name>
   
   <welcome-file-list>
-    <welcome-file>login_client/login.jsp</welcome-file>
+    <welcome-file>welcome_public/welcome.jsp</welcome-file>
   </welcome-file-list>
 </web-app>

@@ -1,9 +1,5 @@
-html,
-body {
+main {
   height: 100%;
-}
-
-body {
   display: flex;
   align-items: center;
   padding-top: 40px;

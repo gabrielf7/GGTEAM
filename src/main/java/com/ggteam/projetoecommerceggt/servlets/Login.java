@@ -24,14 +24,6 @@ import javax.persistence.Persistence;
 @WebServlet(name = "Login", urlPatterns = {"/Login"})
 public class Login extends HttpServlet {
   
-  @Override
-  protected void doGet(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
-    response.setContentType("text/html;charset=UTF-8");
-
-    request.getRequestDispatcher("login_client/login.jsp").include(request, response);
-  }
-  
   public EntityManager getEntityManager() {
     //Obtém o factory a partir da unidade de persistência.
     EntityManagerFactory factory = Persistence.createEntityManagerFactory(
@@ -43,6 +35,14 @@ public class Login extends HttpServlet {
     return entityManager;
   }
   
+  @Override
+  protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    throws ServletException, IOException {
+    response.setContentType("text/html;charset=UTF-8");
+
+    request.getRequestDispatcher("login_client/login.jsp").include(request, response);
+  }
+  
   public UsuarioCliente getUsuario(String email, String senha){
     try {
       EntityManager entityManager = getEntityManager();
@@ -50,7 +50,7 @@ public class Login extends HttpServlet {
       UsuarioCliente usuario = (UsuarioCliente) entityManager
         .createQuery(
           "SELECT u FROM UsuarioCliente u WHERE "
-          + "u.email = :email_sql and u.senha = :senha_sql"
+          + "u.email = :email_sql AND u.senha = :senha_sql"
         )
         .setParameter("email_sql", email)
         .setParameter("senha_sql", senha).getSingleResult();
@@ -58,7 +58,6 @@ public class Login extends HttpServlet {
       return usuario;
     } catch (Exception e) {
       //System.out.println("result: " + e.getMessage());
-      //System.out.println("senha: " + senha);
       return null;
     }
   }
@@ -71,9 +70,10 @@ public class Login extends HttpServlet {
     
     UsuarioCliente validoUser = getUsuario(email, senha);
     if (validoUser == null) {
-      System.out.println("Error ao fazer login" + validoUser);
+      //System.out.println("Error ao fazer login" + validoUser);
+      response.sendRedirect(request.getContextPath() + "/Login?clt=false");
     } else {
-      System.out.println("Logado o CLiente");
+      //System.out.println("Logado o CLiente");
       response.sendRedirect(request.getContextPath() + "/Home");
     }
   }

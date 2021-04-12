@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Cadastrar | More Shop</title>
+    <title> Entrada | More Shop</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -20,58 +20,76 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
 
     <!-- My Styles -->
-    <style>
-      main {
-        max-width: 960px; height: 500px;
-      }
-      input[type=number]::-webkit-inner-spin-button { 
-        -webkit-appearance: none;
-      }
-      input[type=number] { 
-        -moz-appearance: textfield;
-        appearance: textfield;
-      }
-    </style>
+    <link href="${pageContext.request.contextPath}/css/global.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/home.css" rel="stylesheet">
+    
   </head>
-  <body style="background-color: #fff;color: #1D2731;" >
+  <body>
     <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">More Shop</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
-            data-bs-target="#navbarSupportedContent" 
-            aria-controls="navbarSupportedContent" 
+      <nav class="navbar navbar-expand-lg text-white bg-primary">
+        <div class="container-fluid nav-container-fluid">
+          <div class="my-navbar-brand">
+            <a class="navbar-brand" 
+              href="${pageContext.request.contextPath}/"
+            >
+              <img class="logo" 
+                src="${pageContext.request.contextPath}/assets/logo.png" 
+                alt="Logo"
+              />
+            </a>
+          </div>
+
+          <button class="navbar-toggler" type="button" 
+            data-bs-toggle="collapse" 
+            data-bs-target="#navbarMain" 
+            aria-controls="navbarMain" 
             aria-expanded="false" aria-label="Toggle navigation"
           >
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" 
-                href="#">Home</a>
+
+          <div class="collapse navbar-collapse mb-2" 
+            id="navbarMain"
+          >
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item me-2">
+                <a class="nav-link active" aria-current="page"
+                  href="${pageContext.request.contextPath}/"
+                >
+                  Home
+                </a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item me-2">
                 <a class="nav-link" href="#">Sobre</a>
               </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" 
-                  id="navbarDropdown" role="button" 
-                  data-bs-toggle="dropdown" aria-expanded="false">
-                  Serviços ADM
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Produto</a></li>
-                  <li><a class="dropdown-item" href="#">Categoria</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Histórico</a></li>
-                </ul>
+              <li class="nav-item me-2">
+                <a class="nav-link" href="#">Categoria</a>
+              </li>
+              <li class="nav-item me-2">
+                <a class="nav-link" href="#">Produtos</a>
+              </li>
+              <li class="nav-item me-2">
+                <a class="nav-link" href="#">Lojas</a>
               </li>
             </ul>
-            <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+            <div class="d-flex">
+              <form class="d-flex justify-content-evenly">
+                <input class="form-control me-2" type="search" placeholder="Search" 
+                  aria-label="Search" 
+                />
+                <button class="btn btn-success me-2 p-2" type="submit">Pesquisa</button>
+              </form>
+              
+              <a class="ml-5" type="button" 
+                href="${pageContext.request.contextPath}/Login"
+              >
+                <img
+                  src="${pageContext.request.contextPath}/assets/conta-user.png" 
+                  alt="User"
+                  style="height: 32px; width: 32px;"
+                />
+              </a>
+            </div>
           </div>
         </div>
       </nav>
@@ -265,6 +283,6 @@
 
     </footer>
     <!-- Scripts -->
-    <script type="text/javascript" src="./js/exGrafico.js"></script>
+    <script type="text/javascript" src="./js/chart-example.js"></script>
   </body>
 </html>

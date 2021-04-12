@@ -27,14 +27,6 @@ import java.time.format.DateTimeFormatter;
 @WebServlet(name = "Cliente", urlPatterns = {"/Cliente"})
 public class Cliente extends HttpServlet {
   
-  @Override
-  protected void doGet(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
-    response.setContentType("text/html;charset=UTF-8");
-
-    request.getRequestDispatcher("/login_client/cadastrar_client/cadastro_client.jsp").include(request, response);
-  }
-
   private EntityManager getEntityManager() {
     //Obtém o factory a partir da unidade de persistência.
     EntityManagerFactory factory = Persistence.createEntityManagerFactory(
@@ -44,6 +36,33 @@ public class Cliente extends HttpServlet {
     EntityManager entityManager = factory.createEntityManager();
 
     return entityManager;
+  }
+
+  @Override
+  protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    throws ServletException, IOException {
+    response.setContentType("text/html;charset=UTF-8");
+    
+    request.getRequestDispatcher("/login_client/cadastrar_client/cadastro_client.jsp").include(request, response);
+  }
+  
+  public UsuarioCliente getIdentificarCliente(String email, String cpf){
+    try {
+      EntityManager entityManager = getEntityManager();
+
+      UsuarioCliente usuario = (UsuarioCliente) entityManager
+        .createQuery(
+          "SELECT u FROM UsuarioCliente u WHERE "
+          + "u.email = :email_sql OR u.cpf = :cpf_sql"
+        )
+        .setParameter("email_sql", email)
+        .setParameter("cpf_sql", cpf).getSingleResult();
+
+      return usuario;
+    } catch (Exception e) {
+      // System.out.println("result: " + e.getMessage());
+      return null;
+    }
   }
 
   @Override
@@ -72,23 +91,27 @@ public class Cliente extends HttpServlet {
       usr_cliente.setEmail(email);
       usr_cliente.setSenha(senha);
       usr_cliente.setCpf(cpf);
-      // usr_cliente.setCpf(Integer.parseInt(cpf));
       usr_cliente.setLocalidade(cidade + ", " + estado);
       usr_cliente.setUltimoAcesso(formato.format(dataHoje));
-      
-      // System.out.println("result: " + request.getContextPath());
-      
+
+      UsuarioCliente identificarCliente = getIdentificarCliente(email, cpf);
+
       // Verificar se os campos foram preenchidos corretamente.
-      if ( email == null || cpf == null ) {
-        response.sendRedirect(request.getContextPath() + "/Cliente");
-      } else {
-        // Inicia uma transação com o banco de dados.
+      if ( cpf == null || email == null ) {
+        response.sendRedirect(request.getContextPath() + "/Cliente?naddclt=false");
+      }
+      // Verificar se o cliente já existe no DB.
+      if ( identificarCliente == null ) {
+        // Inicia uma transação com o banco de dados, para add novo cliente.
         entityManager.getTransaction().begin();
         entityManager.persist(usr_cliente);
         entityManager.getTransaction().commit();
 
         response.sendRedirect(request.getContextPath() + "/Login");
+      } else {
+        response.sendRedirect(request.getContextPath() + "/Cliente?addclt=true");
       }
+
     } finally {
       // Fecha conexão
       if (entityManager.getTransaction().isActive()) {
