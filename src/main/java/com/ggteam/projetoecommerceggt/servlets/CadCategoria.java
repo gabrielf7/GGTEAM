@@ -59,7 +59,7 @@ public class CadCategoria extends HttpServlet {
       entityManager.persist(categoria);
       entityManager.getTransaction().commit();
 
-      response.sendRedirect(request.getContextPath() + "/Home");
+      response.sendRedirect(request.getContextPath() + "/Administrador");
 
     } finally {
       // Fecha conexão

@@ -1,88 +1,82 @@
 <header>
 
-  <nav class="navbar navbar-expand-lg text-success my-bg"> <!-- bg-primary -->
-    <div class="container-fluid nav-container-fluid">
-      <div class="my-navbar-brand">
-        <a class="navbar-brand" 
-          href="${pageContext.request.contextPath}/"
-        >
-          <img class="logoSvg"
-            src="${pageContext.request.contextPath}/assets/logoIcon01.svg" 
-            alt="logo"
-          />
-          <img class="logo" 
-            src="${pageContext.request.contextPath}/assets/logo.png" 
-            alt="Logo"
-          />
-        </a>
-      </div>
+  <nav class="py-2 my-bg border-bottom">
 
-      <button class="navbar-toggler bg-my6-color btn btn-success text-white" 
-        type="button" 
-        data-bs-toggle="collapse" 
-        data-bs-target="#navbarMain" 
-        aria-controls="navbarMain" 
-        aria-expanded="false" aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse mb-2" 
-        id="navbarMain"
-      >
-        <ul class="navbar-nav me-auto">
-          <li class="nav-item me-2">
-            <a class="nav-link active" aria-current="page"
-              href="${pageContext.request.contextPath}/"
-            >
-              Home
-            </a>
-          </li>
-          <li class="nav-item me-2">
-            <a class="nav-link" href="#">Sobre</a>
-          </li>
-          <li class="nav-item me-2">
-            <a class="nav-link" 
-              href="${pageContext.request.contextPath}/ListaCategoria"
-            >
-              Categoria
-            </a>
-          </li>
-          <li class="nav-item me-2">
-            <a class="nav-link" 
-              href="${pageContext.request.contextPath}/ListaProduto"
-            >
-              Produtos
-            </a>
-          </li>
-          <li class="nav-item me-5">
-            <a class="nav-link" 
-              href="${pageContext.request.contextPath}/Lojas"
-            >
-              Lojas
-            </a>
-          </li>
-        </ul>
-        <div class="d-flex">
-          <form class="d-flex justify-content-evenly">
-            <input class="form-control me-2" type="search" placeholder="Search" 
-              aria-label="Search" 
-            />
-            <button class="btn btn-primary me-2 p-2" type="submit">Pesquisa</button>
-          </form>
-
-          <a class="ml-5" type="button" 
-            href="${pageContext.request.contextPath}/Login"
+    <div class="container d-flex flex-wrap">
+      <ul class="nav my-nav me-auto">
+        <li class="nav-item me-2">
+          <a class="nav-link active" aria-current="page"
+            href="${pageContext.request.contextPath}/"
           >
-            <img
-              src="${pageContext.request.contextPath}/assets/conta-user.png" 
-              alt="User"
-              style="height: 32px; width: 32px;"
-            />
+            Home
           </a>
-        </div>
-      </div>
+        </li>
+        <li class="nav-item me-2">
+          <a class="nav-link" href="#">Sobre</a>
+        </li>
+        <li class="nav-item me-2">
+          <a class="nav-link" 
+            href="${pageContext.request.contextPath}/ListaCategoria"
+          >
+            Categoria
+          </a>
+        </li>
+        <li class="nav-item me-2">
+          <a class="nav-link" 
+            href="${pageContext.request.contextPath}/ListaProduto"
+          >
+            Produtos
+          </a>
+        </li>
+        <li class="nav-item me-5">
+          <a class="nav-link" 
+            href="${pageContext.request.contextPath}/Lojas"
+          >
+            Lojas
+          </a>
+        </li>
+      </ul>
+      <ul class="nav my-nav">
+        <li class="nav-item">
+          <a href="${pageContext.request.contextPath}/Login"
+            class="nav-link px-2" type="button" 
+          >
+            Faça Login
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="${pageContext.request.contextPath}/Cliente"
+            class="nav-link px-2" type="button" 
+          >
+            Cadastra-se
+          </a>
+        </li>
+      </ul>
     </div>
+
+  </nav>
+  <nav class="py-3 mb-1">
+
+    <div class="container d-flex flex-wrap justify-content-center">
+      <a href="${pageContext.request.contextPath}/" 
+        class="d-flex align-items-center mb-md-0 me-md-auto"
+      >
+        <img class="logoSvg"
+          src="${pageContext.request.contextPath}/assets/logoIcon01.svg" 
+          alt="logo"
+        />
+        <img class="logo" 
+          src="${pageContext.request.contextPath}/assets/logo.png" 
+          alt="Logo"
+        />
+      </a>
+      <form class="d-flex align-items-center col-12 col-lg-3 mb-lg-0">
+        <input type="search" class="form-control me-2" placeholder="Search...">
+        <button class="btn btn-primary my-button-search p-2" type="submit">Pesquisa</button>
+      </form>
+
+    </div>
+
   </nav>
 
 </header>

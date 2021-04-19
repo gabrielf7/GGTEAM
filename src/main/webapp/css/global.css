@@ -50,11 +50,10 @@ input[type=number] {
 
 header {
   border-bottom: 1px solid #fbbf00;
+  background-color: rgba(230,230,240,0.7);
 }
 
 .my-bg {
-  width: 100%;
-  padding: 10px;
   background-color: rgba(255,255,255,0.95);
 }
 
@@ -68,25 +67,8 @@ header {
   width: 142px;
 }
 
-.nav-container-fluid {
-  padding: 20px 20px;
-  color: #fff;
-}
-
-.container-fluid {
-  width: 1120px;
-}
-
-.container-fluid .my-navbar-brand {
-  width: 45%;
-}
-
-.navbar-nav .nav-link {
+.my-nav .nav-link {
   font-size: 16px;
-}
-
-.my-button-sale {
-  font-size: 35px;
 }
 
 .my-button-search {
@@ -98,4 +80,9 @@ header {
 .my-button-search:hover {
   color: white;
   background: linear-gradient(180deg, --color-primary-dark 47%, white 87%);
+}
+
+/* Cards */
+.my-card {
+  width: 10rem;
 }
