@@ -21,6 +21,12 @@
           >
             Adicionar Produto
           </button>
+          <button class="col-lg-12 col-sm-12 p-lg-2 mt-3 btn btn-outline-danger" 
+            type="button" data-bs-toggle="modal" 
+            data-bs-target="#modal_new_categoria"
+          >
+            Adicionar Categoria
+          </button>
 
         </div>
 
@@ -108,6 +114,56 @@
                     name="stock_product" min=1 
                     placeholder="Digite o numero no estoque..." 
                     alt="Informe o quantos tem no estoque" required
+                  />
+
+                </div>
+
+                <button type="submit" class="mt-4 btn btn-success">
+                  Confirmar
+                </button>
+
+              </form>
+
+            </div>
+            <div class="modal-footer justify-content-center">
+              <button type="button" 
+                class="btn btn-my2-color border border-white" 
+                data-bs-dismiss="modal"
+              >
+                Fechar
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Modal Cadastro de Categoria -->
+      <div class="modal fade" id="modal_new_categoria" tabindex="-1" 
+        aria-labelledby="New Categoria" aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Nova Categoria</h5>
+              <button type="button" class="close" 
+                data-bs-dismiss="modal" aria-label="Close"
+              >
+                <i class="far fa-times-circle text-white" aria-hidden="true"></i>
+              </button>
+
+            </div>
+            <div class="modal-body">
+              <form action="${pageContext.request.contextPath}/CadCategoria" method="POST">
+                <div class="form-group">
+                  <label>Nome da Categoria</label>
+
+                  <input class="form-control" type="text" 
+                    name="name_categoria" placeholder="Digite o nome da categoria" 
+                    alt="Informe o nome da categoria" required 
                   />
 
                 </div>

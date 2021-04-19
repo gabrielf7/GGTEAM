@@ -10,31 +10,40 @@ import javax.persistence.Table;
 
 /**
  *
- * @author on github *
- * -> @gabrielf7 (JoaoGabriel)
- * -> @jvpererinha (JoaoVictorD.)
- * -> @gustavo3g (GustavoBarros)
- * -> @ (TallysSilva)
+ * @author on github * -> @gabrielf7 (JoaoGabriel) -> @jvpererinha
+ * (JoaoVictorD.) -> @gustavo3g (GustavoBarros) -> @ (TallysSilva)
  */
 @Entity
-@Table(name="tab_categoria")
+@Table(name = "tab_categoria")
 public class Categoria implements Serializable {
 
   private static final long serialVersionUID = 1L;
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  @Column(name="idCategoria", nullable=false, unique=true)
+  @Column(name = "idCategoria", nullable = false, unique = true)
   private Long id;
-  
-  @Column(name="nomeCategoria", nullable=false, unique=false)
+
+  @Column(name = "nomeCategoria", nullable = false, unique = false)
   private String nome;
+
+  public Categoria() {
+  }
+
+  public Categoria(Long id, String nome) {
+    this.id = id;
+    this.nome = nome;
+  }
+
+  public String getNome() {
+    return nome;
+  }
+
+  public void setNome(String nome) {
+    this.nome = nome;
+  }
 
   public Long getId() {
     return id;
-  }
-
-  public void setId(Long id) {
-    this.id = id;
   }
 
   @Override
@@ -61,5 +70,5 @@ public class Categoria implements Serializable {
   public String toString() {
     return "com.ggteam.projetoecommerceggt.model.Categoria[ id=" + id + " ]";
   }
-  
+
 }
