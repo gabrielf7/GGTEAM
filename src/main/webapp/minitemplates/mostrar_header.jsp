@@ -12,25 +12,25 @@
           </a>
         </li>
         <li class="nav-item me-2">
-          <a class="nav-link" href="#">Sobre</a>
+          <a class="nav-link" href="${pageContext.request.contextPath}/#sobre">Sobre</a>
         </li>
         <li class="nav-item me-2">
           <a class="nav-link" 
-            href="${pageContext.request.contextPath}/ListaCategoria"
+            href="${pageContext.request.contextPath}/Category"
           >
             Categoria
           </a>
         </li>
         <li class="nav-item me-2">
           <a class="nav-link" 
-            href="${pageContext.request.contextPath}/ListaProduto"
+            href="${pageContext.request.contextPath}/Product"
           >
             Produtos
           </a>
         </li>
         <li class="nav-item me-5">
           <a class="nav-link" 
-            href="${pageContext.request.contextPath}/Lojas"
+            href="${pageContext.request.contextPath}/Shop"
           >
             Lojas
           </a>
@@ -45,7 +45,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="${pageContext.request.contextPath}/Cliente"
+          <a href="${pageContext.request.contextPath}/Registered"
             class="nav-link px-2" type="button" 
           >
             Cadastra-se
@@ -62,11 +62,11 @@
         class="d-flex align-items-center mb-md-0 me-md-auto"
       >
         <img class="logoSvg"
-          src="${pageContext.request.contextPath}/assets/logoIcon01.svg" 
+          src="${pageContext.request.contextPath}/app_src/assets/logoIcon01.svg" 
           alt="logo"
         />
         <img class="logo" 
-          src="${pageContext.request.contextPath}/assets/logo.png" 
+          src="${pageContext.request.contextPath}/app_src/assets/logo.png" 
           alt="Logo"
         />
       </a>

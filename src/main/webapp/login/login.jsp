@@ -2,8 +2,8 @@
     <title> Entrar | More Shop </title>
     
     <!-- My Styles -->
-    <link href="${pageContext.request.contextPath}/css/global.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/css/login.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/app_src/css/global.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/app_src/css/login.css" rel="stylesheet">
 
   <%@include file="../minitemplates/fechar_head.jsp"%>
   <!-- Abre Body -->
@@ -34,11 +34,33 @@
             />
             <label for="floatingPassword">Senha</label>
           </div>
+          <h6>Conta</h6>
+          <div class="d-flex mb-4 justify-content-around">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" 
+                name="conta_login" id="conta_login-01" 
+                value="Pessoal"
+                checked
+              />
+              <label class="form-check-label" for="conta_login-01">
+                Pessoal
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" 
+                name="conta_login" id="conta_login-02" 
+                value="Colaborador"
+              />
+              <label class="form-check-label" for="conta_login-02">
+                Colaborador
+              </label>
+            </div>
+          </div>
 
           <button class="w-100 btn btn-lg btn-primary" type="submit">
             Fazer Logon
           </button>
-          <a href="${pageContext.request.contextPath}/Cliente">
+          <a href="${pageContext.request.contextPath}/Registered">
             Está de fora? cadastra-se aqui...
           </a>
           <div class="pt-5 text-muted text-center text-small">
@@ -49,6 +71,6 @@
 
     </main>
     <!-- My Script -->
-    <script src="${pageContext.request.contextPath}/js/login.js"></script>
+    <script src="${pageContext.request.contextPath}/app_src/js/login.js"></script>
   <!-- Fecha Body -->
 <%@include file="../minitemplates/fechar_page.jsp"%>

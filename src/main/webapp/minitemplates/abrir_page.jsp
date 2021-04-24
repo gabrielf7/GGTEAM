@@ -7,7 +7,7 @@
     <meta name="description" content="More Shop, uma plataforma de divulgação de lojas de terceiros">
     <meta name="author" content="GGTEAM Inc., GGTEAM, More Shop CEOs">
     <!-- Icon -->
-    <link rel="icon" href="${pageContext.request.contextPath}/assets/logoIcon01.svg" />
+    <link rel="icon" href="${pageContext.request.contextPath}/app_src/assets/logoIcon01.svg" />
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">

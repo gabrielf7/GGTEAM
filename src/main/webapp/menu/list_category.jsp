@@ -2,7 +2,7 @@
     <title> Categorias | More Shop </title>
 
     <!-- My Styles -->
-    <link href="${pageContext.request.contextPath}/css/global.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/app_src/css/global.css" rel="stylesheet">
 
   <%@include file="../minitemplates/fechar_head.jsp"%>
   <!-- Abre Body -->

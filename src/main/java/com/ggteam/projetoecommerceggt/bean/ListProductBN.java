@@ -1,5 +1,6 @@
 package com.ggteam.projetoecommerceggt.bean;
 
+import com.ggteam.projetoecommerceggt.dao.ProductDAO;
 import com.ggteam.projetoecommerceggt.models.Produto;
 import java.sql.SQLException;
 import java.util.List;
@@ -12,17 +13,16 @@ import java.util.List;
  * -> @gustavo3g (GustavoBarros)
  * -> @ (TallysSilva)
  */
-public class ListProdutoBN {
+public class ListProductBN {
 
   private List<Produto> produtos;
 
-  public ListProdutoBN() {
-    // TODO Auto-generated constructor stub
+  public ListProductBN() {
   }
 
   public List<Produto> getProdutos() {
     try {
-      Produto pd = new Produto();
+      ProductDAO pd = new ProductDAO();
       produtos = pd.listAll();
     } catch (SQLException e) {
     }

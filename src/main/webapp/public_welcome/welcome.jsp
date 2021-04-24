@@ -2,8 +2,8 @@
     <title> More Shop </title>
 
     <!-- My Styles -->
-    <link href="${pageContext.request.contextPath}/css/global.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/css/welcome.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/app_src/css/global.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/app_src/css/welcome.css" rel="stylesheet">
 
   <%@include file="../minitemplates/fechar_head.jsp"%>
   <!-- Abre Body -->
@@ -25,7 +25,7 @@
             </p>
           </div>
           <div class="col-md-5">
-            <img src="${pageContext.request.contextPath}/assets/landing.svg" 
+            <img src="${pageContext.request.contextPath}/app_src/assets/landing.svg" 
               class="mt-5 col-sm-12" alt="img background"
             />
           </div>
@@ -63,7 +63,7 @@
                   <div class="card-group">
                     <div class="card my-card">
                       <img 
-                        src="${pageContext.request.contextPath}/assets/fone-de-ouvido-bluetooth-preto.jpg" 
+                        src="${pageContext.request.contextPath}/app_src/assets/fone-de-ouvido-bluetooth-preto.jpg" 
                         class="card-img-top" alt="Fone de ouvido bluetooth"
                       />
                       <div class="card-body">
@@ -77,7 +77,7 @@
                     </div>
                     <div class="card my-card">
                       <img 
-                        src="${pageContext.request.contextPath}/assets/fone-de-ouvido-bluetooth-preto.jpg" 
+                        src="${pageContext.request.contextPath}/app_src/assets/fone-de-ouvido-bluetooth-preto.jpg" 
                         class="card-img-top" alt="Fone de ouvido bluetooth"
                       />
                       <div class="card-body">
@@ -91,7 +91,7 @@
                     </div>
                     <div class="card my-card">
                       <img 
-                        src="${pageContext.request.contextPath}/assets/fone-de-ouvido-bluetooth-preto.jpg" 
+                        src="${pageContext.request.contextPath}/app_src/assets/fone-de-ouvido-bluetooth-preto.jpg" 
                         class="card-img-top" alt="Fone de ouvido bluetooth"
                       />
                       <div class="card-body">
@@ -109,7 +109,7 @@
                   <div class="card-group">
                     <div class="card my-card">
                       <img 
-                        src="${pageContext.request.contextPath}/assets/fone-de-ouvido-bluetooth-preto.jpg" 
+                        src="${pageContext.request.contextPath}/app_src/assets/fone-de-ouvido-bluetooth-preto.jpg" 
                         class="card-img-top" alt="Fone de ouvido bluetooth"
                       />
                       <div class="card-body">
@@ -123,7 +123,7 @@
                     </div>
                     <div class="card my-card">
                       <img 
-                        src="${pageContext.request.contextPath}/assets/fone-de-ouvido-bluetooth-preto.jpg" 
+                        src="${pageContext.request.contextPath}/app_src/assets/fone-de-ouvido-bluetooth-preto.jpg" 
                         class="card-img-top" alt="Fone de ouvido bluetooth"
                       />
                       <div class="card-body">
@@ -137,7 +137,7 @@
                     </div>
                     <div class="card my-card">
                       <img 
-                        src="${pageContext.request.contextPath}/assets/fone-de-ouvido-bluetooth-preto.jpg" 
+                        src="${pageContext.request.contextPath}/app_src/assets/fone-de-ouvido-bluetooth-preto.jpg" 
                         class="card-img-top" alt="Fone de ouvido bluetooth"
                       />
                       <div class="card-body">
@@ -155,7 +155,7 @@
                   <div class="card-group">
                     <div class="card my-card">
                       <img 
-                        src="${pageContext.request.contextPath}/assets/fone-de-ouvido-bluetooth-preto.jpg" 
+                        src="${pageContext.request.contextPath}/app_src/assets/fone-de-ouvido-bluetooth-preto.jpg" 
                         class="card-img-top" alt="Fone de ouvido bluetooth"
                       />
                       <div class="card-body">
@@ -169,7 +169,7 @@
                     </div>
                     <div class="card my-card">
                       <img 
-                        src="${pageContext.request.contextPath}/assets/fone-de-ouvido-bluetooth-preto.jpg" 
+                        src="${pageContext.request.contextPath}/app_src/assets/fone-de-ouvido-bluetooth-preto.jpg" 
                         class="card-img-top" alt="Fone de ouvido bluetooth"
                       />
                       <div class="card-body">
@@ -183,7 +183,7 @@
                     </div>
                     <div class="card my-card">
                       <img 
-                        src="${pageContext.request.contextPath}/assets/fone-de-ouvido-bluetooth-preto.jpg" 
+                        src="${pageContext.request.contextPath}/app_src/assets/fone-de-ouvido-bluetooth-preto.jpg" 
                         class="card-img-top" alt="Fone de ouvido bluetooth"
                       />
                       <div class="card-body">
@@ -201,7 +201,7 @@
                   <div class="card-group">
                     <div class="card my-card">
                       <img 
-                        src="${pageContext.request.contextPath}/assets/fone-de-ouvido-bluetooth-preto.jpg" 
+                        src="${pageContext.request.contextPath}/app_src/assets/fone-de-ouvido-bluetooth-preto.jpg" 
                         class="card-img-top" alt="Fone de ouvido bluetooth"
                       />
                       <div class="card-body">
@@ -215,7 +215,7 @@
                     </div>
                     <div class="card my-card">
                       <img 
-                        src="${pageContext.request.contextPath}/assets/fone-de-ouvido-bluetooth-preto.jpg" 
+                        src="${pageContext.request.contextPath}/app_src/assets/fone-de-ouvido-bluetooth-preto.jpg" 
                         class="card-img-top" alt="Fone de ouvido bluetooth"
                       />
                       <div class="card-body">
@@ -229,7 +229,7 @@
                     </div>
                     <div class="card my-card">
                       <img 
-                        src="${pageContext.request.contextPath}/assets/fone-de-ouvido-bluetooth-preto.jpg" 
+                        src="${pageContext.request.contextPath}/app_src/assets/fone-de-ouvido-bluetooth-preto.jpg" 
                         class="card-img-top" alt="Fone de ouvido bluetooth"
                       />
                       <div class="card-body">
@@ -252,6 +252,7 @@
 
         <!-- Three columns of text below the carousel -->
         <div class="row">
+          <h3 id="sobre" class="text-center mb-5">Sobre</h3>
           <div class="col-lg-4">
             IMAGE
             <h2>Autor 01</h2>

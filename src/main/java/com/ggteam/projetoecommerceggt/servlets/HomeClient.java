@@ -1,6 +1,5 @@
 package com.ggteam.projetoecommerceggt.servlets;
 
-import com.ggteam.projetoecommerceggt.models.Produto;
 import java.io.IOException;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -19,11 +18,11 @@ import javax.servlet.http.HttpServletResponse;
  * -> @gustavo3g (GustavoBarros)
  * -> @ (TallysSilva)
  */
-@WebServlet(name = "Home", urlPatterns = {"/Home"})
-public class Home extends HttpServlet {
+@WebServlet(name = "Client", urlPatterns = {"/Client"})
+public class HomeClient extends HttpServlet {
   
   private EntityManager getEntityManager() {
-    //ObtÃ©m o factory a partir da unidade de persistÃªncia.
+    //Obtem o factory a partir da unidade de persistencia.
     EntityManagerFactory factory = Persistence.createEntityManagerFactory(
       "ProjetoEcommerceGGT"
     );
@@ -38,43 +37,12 @@ public class Home extends HttpServlet {
     throws ServletException, IOException {
     response.setContentType("text/html;charset=UTF-8");
 
-    request.getRequestDispatcher("/home.jsp").include(request, response);
+    request.getRequestDispatcher("homeClient/client.jsp").include(request, response);
   }
    
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-
-    EntityManager entityManager = getEntityManager();
-
-    try {   
-      String nome = request.getParameter("name_product");
-      String descricao = request.getParameter("description_product");
-      String categoria = request.getParameter("category_product");
-      String valor = request.getParameter("value_product");
-      String estoque = request.getParameter("stock_product");
-
-      Produto produto = new Produto();
-      produto.setNome(nome);
-      produto.setDescricao(descricao);
-      produto.setCategoria(categoria);
-      produto.setValor(valor);
-      produto.setEstoque(estoque);
-
-      entityManager.getTransaction().begin();
-      entityManager.persist(produto);
-      entityManager.getTransaction().commit();
-
-      response.sendRedirect(request.getContextPath() + "/Home");
-
-    } finally {
-      // Fecha conexÃ£o
-      if (entityManager.getTransaction().isActive()) {
-        entityManager.getTransaction().rollback();
-      }
-      
-      entityManager.close();
-    }
   }
 
   @Override

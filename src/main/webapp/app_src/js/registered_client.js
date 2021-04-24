@@ -14,7 +14,7 @@ let valorCLT = getParameter('addclt');
 let nvalorCLT = getParameter('naddclt');
 if (valorCLT === "true") {
   message.setAttribute("class", "w-100 mt-1 btn btn-warning btn-lg");
-  message.innerHTML = "Erro no cadastro, o Email ou Cpf já se encontra cadastrado.";
+  message.innerHTML = "Erro no cadastro, o Email, Cpf ou Nickname já se encontra cadastrado.";
 } else if (nvalorCLT === "false" ) {
   message.setAttribute("class", "w-100 mt-1 btn btn-danger btn-lg");
   message.innerHTML = "Erro no cadastro, o campo Email ou Cpf está vazio.";

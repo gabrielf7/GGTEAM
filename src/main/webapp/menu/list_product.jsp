@@ -8,8 +8,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
 
     <!-- My Styles -->
-    <link href="${pageContext.request.contextPath}/css/global.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/css/list_product.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/app_src/css/global.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/app_src/css/list_product.css" rel="stylesheet">
     
   <%@include file="../minitemplates/fechar_head.jsp"%>
   <!-- Abre Body -->
@@ -18,7 +18,7 @@
 
       <div class="row">
 
-        <table class="table">
+        <table class="table table-striped">
           <thead>
             <tr>
               <th scope="col">#</th>

@@ -17,53 +17,49 @@ import javax.persistence.Table;
  * -> @ (TallysSilva)
  */
 @Entity
-@Table(name="tab_usuarioCLT")
-public class UsuarioCliente implements Serializable {
+@Table(name="tab_colaborador")
+public class UserCollaborator implements Serializable {
 
   private static final long serialVersionUID = 1L;
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  @Column(name="idCliente", nullable=false, unique=true)
+  @Column(name="idColaborador", nullable=false, unique=true)
   private Long id;
   
-  @Column(name="nomeCliente", nullable=false, unique=false)
+  @Column(name="nomeColaborador", nullable=false, unique=false)
   private String nome;
   
-  @Column(name="sobrenomeCliente", nullable=false, unique=false)
+  @Column(name="sobrenomeColaborador", nullable=false, unique=false)
   private String sobrenome;
   
-  @Column(name="nicknameCliente", nullable=false, unique=true)
-  private String nickname;
+  @Column(name="cnpjColaborador", nullable=false, unique=true)
+  private String cnpj;
   
-  @Column(name="emailCliente", nullable=false, unique=true)
+  @Column(name="razaosocialColaborador", nullable=false, unique=true)
+  private String razaosocial;
+  
+  @Column(name="emailColaborador", nullable=false, unique=true)
   private String email;
   
-  @Column(name="senhaCliente", nullable=false, unique=false)
+  @Column(name="senhaColaborador", nullable=false, unique=false)
   private String senha;
-  
-  @Column(name="cpfCliente", nullable=false, unique=true)
-  private String cpf;
-  
-  @Column(name="localidadeCliente", nullable=false, unique=false)
-  private String localidade;
   
   @Column(name="ultimoAcesso", unique=true)
   private String ultimoAcesso;
   
-  public UsuarioCliente() {
+  public UserCollaborator() {
   }
 
-  public UsuarioCliente(Long id, String nome, String sobrenome, 
-    String nickname, String email, String senha, String cpf, 
-    String localidade, String ultimoAcesso) {
+  public UserCollaborator(Long id, String nome, String sobrenome, 
+    String cnpj, String razaosocial, String email, String senha, 
+    String ultimoAcesso) {
     this.id = id;
     this.nome = nome;
     this.sobrenome = sobrenome;
-    this.nickname = nickname;
+    this.cnpj = cnpj;
+    this.razaosocial = razaosocial;
     this.email = email;
     this.senha = senha;
-    this.cpf = cpf;
-    this.localidade = localidade;
     this.ultimoAcesso = ultimoAcesso;
   }
 
@@ -91,12 +87,20 @@ public class UsuarioCliente implements Serializable {
     this.sobrenome = sobrenome;
   }
 
-  public String getNickname() {
-    return nickname;
+  public String getCnpj() {
+    return cnpj;
   }
 
-  public void setNickname(String nickname) {
-    this.nickname = nickname;
+  public void setCnpj(String cnpj) {
+    this.cnpj = cnpj;
+  }
+
+  public String getRazaosocial() {
+    return razaosocial;
+  }
+
+  public void setRazaosocial(String razaosocial) {
+    this.razaosocial = razaosocial;
   }
 
   public String getEmail() {
@@ -113,22 +117,6 @@ public class UsuarioCliente implements Serializable {
 
   public void setSenha(String senha) {
     this.senha = senha;
-  }
-
-  public String getCpf() {
-    return cpf;
-  }
-
-  public void setCpf(String cpf) {
-    this.cpf = cpf;
-  }
-
-  public String getLocalidade() {
-    return localidade;
-  }
-
-  public void setLocalidade(String localidade) {
-    this.localidade = localidade;
   }
 
   public String getUltimoAcesso() {
@@ -149,10 +137,10 @@ public class UsuarioCliente implements Serializable {
   @Override
   public boolean equals(Object object) {
     // TODO: Warning - this method won't work in the case the id fields are not set
-    if (!(object instanceof UsuarioCliente)) {
+    if (!(object instanceof UserCollaborator)) {
       return false;
     }
-    UsuarioCliente other = (UsuarioCliente) object;
+    UserCollaborator other = (UserCollaborator) object;
     if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
       return false;
     }
@@ -161,7 +149,7 @@ public class UsuarioCliente implements Serializable {
 
   @Override
   public String toString() {
-    return "com.ggteam.projetoecommerceggt.model.UsuarioCliente[ id=" + id + " ]";
+    return "com.ggteam.projetoecommerceggt.models.UserCollaborator[ id=" + id + " ]";
   }
   
 }

@@ -1,9 +1,6 @@
 package com.ggteam.projetoecommerceggt.servlets;
 
 import java.io.IOException;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,10 +8,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 // Model
-import com.ggteam.projetoecommerceggt.models.UsuarioCliente;
+import com.ggteam.projetoecommerceggt.models.UserClient;
+
+// DAO 
+import com.ggteam.projetoecommerceggt.dao.ClientDAO;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import javax.persistence.EntityManager;
 
 /**
  *
@@ -24,52 +25,30 @@ import java.time.format.DateTimeFormatter;
  * -> @gustavo3g (GustavoBarros)
  * -> @ (TallysSilva)
  */
-@WebServlet(name = "Cliente", urlPatterns = {"/Cliente"})
-public class Cliente extends HttpServlet {
-  
-  private EntityManager getEntityManager() {
-    //Obtém o factory a partir da unidade de persistência.
-    EntityManagerFactory factory = Persistence.createEntityManagerFactory(
-      "ProjetoEcommerceGGT"
-    );
-    //Cria um entity manager.
-    EntityManager entityManager = factory.createEntityManager();
-
-    return entityManager;
-  }
+@WebServlet(name = "Registered", urlPatterns = {"/Registered"})
+public class LoginRegisteredCLT extends HttpServlet {
 
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
     response.setContentType("text/html;charset=UTF-8");
     
-    request.getRequestDispatcher("/login_client/cadastrar_client/cadastro_client.jsp").include(request, response);
-  }
-  
-  public UsuarioCliente getIdentificarCliente(String email, String cpf){
-    try {
-      EntityManager entityManager = getEntityManager();
-
-      UsuarioCliente usuario = (UsuarioCliente) entityManager
-        .createQuery(
-          "SELECT u FROM UsuarioCliente u WHERE "
-          + "u.email = :email_sql OR u.cpf = :cpf_sql"
-        )
-        .setParameter("email_sql", email)
-        .setParameter("cpf_sql", cpf).getSingleResult();
-
-      return usuario;
-    } catch (Exception e) {
-      // System.out.println("result: " + e.getMessage());
-      return null;
+    if ("Collaborator".equals(request.getParameter("add"))) {
+      request.getRequestDispatcher(
+        "/login/register_collaborator/registered_collaborator.jsp"
+      ).include(request, response);
+    } else {
+      request.getRequestDispatcher(
+        "/login/register_client/registered_client.jsp"
+      ).include(request, response);
     }
   }
 
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-
-    EntityManager entityManager = getEntityManager();
+    ClientDAO client = new ClientDAO();
+    EntityManager entityManager = client.getEntityManager();
 
     try {
       DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
@@ -84,7 +63,7 @@ public class Cliente extends HttpServlet {
       String cidade = request.getParameter("cidade_user");
       String estado = request.getParameter("estado_user");
 
-      UsuarioCliente usr_cliente = new UsuarioCliente();
+      UserClient usr_cliente = new UserClient();
       usr_cliente.setNome(nome);
       usr_cliente.setSobrenome(snome);
       usr_cliente.setNickname(nkname);
@@ -94,14 +73,12 @@ public class Cliente extends HttpServlet {
       usr_cliente.setLocalidade(cidade + ", " + estado);
       usr_cliente.setUltimoAcesso(formato.format(dataHoje));
 
-      UsuarioCliente identificarCliente = getIdentificarCliente(email, cpf);
-
       // Verificar se os campos foram preenchidos corretamente.
       if ( cpf == null || email == null ) {
-        response.sendRedirect(request.getContextPath() + "/Cliente?naddclt=false");
+        response.sendRedirect(request.getContextPath() + "/Registered?naddclt=false");
       }
-      // Verificar se o cliente já existe no DB.
-      if ( identificarCliente == null ) {
+      // Verificar se o cliente ja existe no DB.
+      if ( client.getIdentifyClient(email, cpf, nkname) == null ) {
         // Inicia uma transação com o banco de dados, para add novo cliente.
         entityManager.getTransaction().begin();
         entityManager.persist(usr_cliente);
@@ -109,11 +86,11 @@ public class Cliente extends HttpServlet {
 
         response.sendRedirect(request.getContextPath() + "/Login");
       } else {
-        response.sendRedirect(request.getContextPath() + "/Cliente?addclt=true");
+        response.sendRedirect(request.getContextPath() + "/Registered?addclt=true");
       }
 
     } finally {
-      // Fecha conexão
+      // Fecha conexao
       if (entityManager.getTransaction().isActive()) {
         entityManager.getTransaction().rollback();
       }

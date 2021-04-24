@@ -25,7 +25,7 @@ import com.ggteam.projetoecommerceggt.models.Categoria;
 public class CadCategoria extends HttpServlet {
   
   private EntityManager getEntityManager() {
-    //Obtém o factory a partir da unidade de persistência.
+    //Obtem o factory a partir da unidade de persistencia.
     EntityManagerFactory factory = Persistence.createEntityManagerFactory(
       "ProjetoEcommerceGGT"
     );
@@ -40,7 +40,7 @@ public class CadCategoria extends HttpServlet {
     throws ServletException, IOException {
     response.setContentType("text/html;charset=UTF-8");
 
-    request.getRequestDispatcher("/home.jsp").include(request, response);
+    request.getRequestDispatcher("/app_adm_7w7/adm_7w7.jsp").include(request, response);
   }
 
   @Override
@@ -62,7 +62,7 @@ public class CadCategoria extends HttpServlet {
       response.sendRedirect(request.getContextPath() + "/Administrador");
 
     } finally {
-      // Fecha conexão
+      // Fecha conexao
       if (entityManager.getTransaction().isActive()) {
         entityManager.getTransaction().rollback();
       }

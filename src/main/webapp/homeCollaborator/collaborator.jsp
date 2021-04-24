@@ -5,8 +5,8 @@
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script> -->
 
     <!-- My Styles -->
-    <link href="${pageContext.request.contextPath}/css/global.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/css/home.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/app_src/css/global.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/app_src/css/home.css" rel="stylesheet">
 
   <%@include file="/minitemplates/fechar_head.jsp"%>
   <!-- Abre Body -->
@@ -26,7 +26,7 @@
 
         <div class="col-lg-7">
           <img class="mt-5 col-sm-12" 
-            src="${pageContext.request.contextPath}/assets/landing.svg" 
+            src="${pageContext.request.contextPath}/app_src/assets/landing.svg" 
             alt="img background" 
           />
         </div>
@@ -49,7 +49,9 @@
 
             </div>
             <div class="modal-body">
-              <form action="${pageContext.request.contextPath}/Home" method="POST">
+              <form action="${pageContext.request.contextPath}/CadProduto" 
+                method="POST"
+              >
                 <div class="form-group">
                   <label>Nome do Produto</label>
 
@@ -142,6 +144,8 @@
       <%@include file="/minitemplates/footer.jsp"%>
     </div>
     <!-- Scripts -->
-    <!-- <script type="text/javascript" src="./js/chart-example.js"></script> -->
+    <!-- <script type="text/javascript" 
+    src="${pageContext.request.contextPath}/app_src/js/chart-example.js">
+    </script> -->
   <!-- Fecha Body --> 
 <%@include file="/minitemplates/fechar_page.jsp"%>

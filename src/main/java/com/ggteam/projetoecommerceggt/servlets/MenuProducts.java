@@ -1,5 +1,6 @@
 package com.ggteam.projetoecommerceggt.servlets;
 
+import com.ggteam.projetoecommerceggt.dao.ProductDAO;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
@@ -19,12 +20,12 @@ import com.ggteam.projetoecommerceggt.models.Produto;
  * -> @gustavo3g (GustavoBarros)
  * -> @ (TallysSilva)
  */
-@WebServlet(name = "ListaProduto", urlPatterns = {"/ListaProduto"})
-public class ListaProduto extends HttpServlet {
+@WebServlet(name = "Product", urlPatterns = {"/Product"})
+public class MenuProducts extends HttpServlet {
 
   protected void list_product(HttpServletRequest request, HttpServletResponse response) {
     try {
-      Produto produto = new Produto();
+      ProductDAO produto = new ProductDAO();
       List<Produto> produtos = produto.listAll();
       request.setAttribute("produtos", produtos);
       request.getRequestDispatcher("menu/list_product.jsp").forward(request, response);

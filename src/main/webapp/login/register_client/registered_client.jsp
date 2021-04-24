@@ -2,8 +2,8 @@
     <title> Cadastar | More Shop </title>
 
     <!-- My Styles -->
-    <link href="${pageContext.request.contextPath}/css/global.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/css/cadastro_client.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/app_src/css/global.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/app_src/css/registered_client.css" rel="stylesheet">
 
   <%@include file="../../minitemplates/fechar_head.jsp"%>
   <!-- Abre Body -->
@@ -12,16 +12,16 @@
       <div class="container">
         <div class="row g-2">
           <div class="col-md-5 col-lg-5 h-50 d-flex justify-content-center">
-            <img src="${pageContext.request.contextPath}/assets/user-bag.png" />
+            <img src="${pageContext.request.contextPath}/app_src/assets/user-bag.png" />
           </div>
           <div class="col-md-7 col-lg-7">
             
             <div class="mt-4 d-flex justify-content-between">
               <h2 class="mt-1 p-0">Crie sua conta</h2>
               <a class="mb-3 pl-3 pr-3 btn btn-primary btn-lg" 
-                href="${pageContext.request.contextPath}/Login"
+                href="${pageContext.request.contextPath}/Registered?add=Collaborator"
               >
-                Voltar para o login
+                Criar uma conta de empresa
               </a>
             </div>
               
@@ -30,9 +30,9 @@
             <p id="messageErroCadastro"></p>
             
             <form name="FormUsuario"
-                  action="${pageContext.request.contextPath}/Cliente" method="POST"
-                  class="needs-validation"
-                  >
+              action="${pageContext.request.contextPath}/Registered" method="POST"
+              class="needs-validation"
+            >
               <div class="row">
                 <div class="input-group">
                   <span class="input-group-text">Nome completo</span>
@@ -127,6 +127,6 @@
 
     </main>
     <!-- My Script -->
-    <script src="${pageContext.request.contextPath}/js/cadastro_client.js"></script>
+    <script src="${pageContext.request.contextPath}/app_src/js/registered_client.js"></script>
   <!-- Fecha Body -->
 <%@include file="../../minitemplates/fechar_page.jsp"%>

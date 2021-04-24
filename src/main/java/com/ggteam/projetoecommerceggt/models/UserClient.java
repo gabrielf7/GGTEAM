@@ -17,8 +17,8 @@ import javax.persistence.Table;
  * -> @ (TallysSilva)
  */
 @Entity
-@Table(name="tab_usuarioCLT")
-public class UsuarioCliente implements Serializable {
+@Table(name="tab_cliente")
+public class UserClient implements Serializable {
 
   private static final long serialVersionUID = 1L;
   @Id
@@ -50,10 +50,10 @@ public class UsuarioCliente implements Serializable {
   @Column(name="ultimoAcesso", unique=true)
   private String ultimoAcesso;
   
-  public UsuarioCliente() {
+  public UserClient() {
   }
 
-  public UsuarioCliente(Long id, String nome, String sobrenome, 
+  public UserClient(Long id, String nome, String sobrenome, 
     String nickname, String email, String senha, String cpf, 
     String localidade, String ultimoAcesso) {
     this.id = id;
@@ -149,10 +149,10 @@ public class UsuarioCliente implements Serializable {
   @Override
   public boolean equals(Object object) {
     // TODO: Warning - this method won't work in the case the id fields are not set
-    if (!(object instanceof UsuarioCliente)) {
+    if (!(object instanceof UserClient)) {
       return false;
     }
-    UsuarioCliente other = (UsuarioCliente) object;
+    UserClient other = (UserClient) object;
     if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
       return false;
     }
@@ -161,7 +161,7 @@ public class UsuarioCliente implements Serializable {
 
   @Override
   public String toString() {
-    return "com.ggteam.projetoecommerceggt.model.UsuarioCliente[ id=" + id + " ]";
+    return "com.ggteam.projetoecommerceggt.models.UserClient[ id=" + id + " ]";
   }
   
 }

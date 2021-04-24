@@ -1,6 +1,5 @@
 package com.ggteam.projetoecommerceggt.servlets;
 
-import com.ggteam.projetoecommerceggt.models.Produto;
 import java.io.IOException;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -11,6 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+// Models 
+import com.ggteam.projetoecommerceggt.models.Produto;
+
 /**
  *
  * @author on github *
@@ -19,11 +21,11 @@ import javax.servlet.http.HttpServletResponse;
  * -> @gustavo3g (GustavoBarros)
  * -> @ (TallysSilva)
  */
-@WebServlet(name = "Home", urlPatterns = {"/Home"})
-public class Home extends HttpServlet {
+@WebServlet(name = "Collaborator", urlPatterns = {"/Collaborator"})
+public class HomeCollaborator extends HttpServlet {
   
   private EntityManager getEntityManager() {
-    //ObtÃ©m o factory a partir da unidade de persistÃªncia.
+    //Obtem o factory a partir da unidade de persistencia.
     EntityManagerFactory factory = Persistence.createEntityManagerFactory(
       "ProjetoEcommerceGGT"
     );
@@ -38,7 +40,7 @@ public class Home extends HttpServlet {
     throws ServletException, IOException {
     response.setContentType("text/html;charset=UTF-8");
 
-    request.getRequestDispatcher("/home.jsp").include(request, response);
+    request.getRequestDispatcher("homeCollaborator/collaborator.jsp").include(request, response);
   }
    
   @Override
@@ -65,10 +67,10 @@ public class Home extends HttpServlet {
       entityManager.persist(produto);
       entityManager.getTransaction().commit();
 
-      response.sendRedirect(request.getContextPath() + "/Home");
+      response.sendRedirect(request.getContextPath() + "/Collaborator");
 
     } finally {
-      // Fecha conexÃ£o
+      // Fecha conexao
       if (entityManager.getTransaction().isActive()) {
         entityManager.getTransaction().rollback();
       }
