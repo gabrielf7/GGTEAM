@@ -1,14 +1,15 @@
 package com.ggteam.projetoecommerceggt.dao;
 
-import com.ggteam.projetoecommerceggt.models.Produto;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
+
+// Models 
+import com.ggteam.projetoecommerceggt.models.Produto;
 
 /**
  *
@@ -35,36 +36,28 @@ public class ProductDAO {
   }
   
   public List<Produto> listAll() throws SQLException {
-    PreparedStatement statement = null;
-    ResultSet resultSet = null;
-    List<Produto> listarProduto = new ArrayList<>();
+    Produto produto;
+    List<Produto> listarProduto;
+    List<Produto> listarStringProduto = new ArrayList<>();
     try {
       EntityManager entityManager = getEntityManager();
-      statement = (PreparedStatement) entityManager
-        .createQuery("SELECT p FROM Produto p ORDER BY p.id ASC");
+      TypedQuery query = entityManager
+        .createQuery("SELECT p FROM Produto p ORDER BY p.nome ASC", Produto.class);
       
-      resultSet = statement.executeQuery();
+      listarProduto = (List<Produto>) query.getResultList();
       
-      while (resultSet.next()) {
-        Produto produto = new Produto();
-        produto.setId(resultSet.getLong("id"));
-        produto.setNome(resultSet.getString("nome"));
-        produto.setDescricao(resultSet.getString("descricao"));
-        produto.setCategoria(resultSet.getString("categoria"));
-        produto.setValor(resultSet.getString("valor"));
-        produto.setEstoque(resultSet.getString("estoque"));
-        listarProduto.add(produto);
+      for (Produto produtos: listarProduto) {
+        produto = new Produto();
+        produto.setNome(produtos.getNome());
+        produto.setDescricao(produtos.getDescricao());
+        produto.setCategoria(produtos.getCategoria());
+        produto.setValor(produtos.getValor());
+        produto.setEstoque(produtos.getEstoque());
+        listarStringProduto.add(produto);
       }
-    } catch (SQLException e) {
+    } catch (Exception e) {
       System.out.println("Erro ao listar produtos: " + e.getMessage());
-    } finally {
-      if (statement != null) {
-        statement.close();
-      }
-      if (resultSet != null) {
-        resultSet.close();
-      }
     }
-    return listarProduto;
+    return listarStringProduto;
   }
 }

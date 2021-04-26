@@ -10,8 +10,11 @@ import javax.persistence.Table;
 
 /**
  *
- * @author on github * -> @gabrielf7 (JoaoGabriel) -> @jvpererinha
- * (JoaoVictorD.) -> @gustavo3g (GustavoBarros) -> @ (TallysSilva)
+ * @author on github *
+ * -> @gabrielf7 (JoaoGabriel)
+ * -> @jvpererinha (JoaoVictorD.)
+ * -> @gustavo3g (GustavoBarros)
+ * -> @ (TallysSilva)
  */
 @Entity
 @Table(name = "tab_categoria")
@@ -68,7 +71,7 @@ public class Categoria implements Serializable {
 
   @Override
   public String toString() {
-    return "com.ggteam.projetoecommerceggt.model.Categoria[ id=" + id + " ]";
+    return "com.ggteam.projetoecommerceggt.models.Categoria[ id=" + id + " ]";
   }
 
 }

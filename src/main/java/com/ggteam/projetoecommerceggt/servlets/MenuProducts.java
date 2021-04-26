@@ -23,13 +23,14 @@ import com.ggteam.projetoecommerceggt.models.Produto;
 @WebServlet(name = "Product", urlPatterns = {"/Product"})
 public class MenuProducts extends HttpServlet {
 
-  protected void list_product(HttpServletRequest request, HttpServletResponse response) {
+  protected void list_product(HttpServletRequest request, HttpServletResponse response) 
+    throws ServletException, IOException {
     try {
       ProductDAO produto = new ProductDAO();
       List<Produto> produtos = produto.listAll();
       request.setAttribute("produtos", produtos);
-      request.getRequestDispatcher("menu/list_product.jsp").forward(request, response);
-    } catch (IOException | SQLException | ServletException e) {
+      request.getRequestDispatcher("/menu/list_product.jsp").forward(request, response);
+    } catch (SQLException e) {
       System.out.println("Erro na rota da lista de produtos: " + e.getMessage());
     }
   }
@@ -39,7 +40,7 @@ public class MenuProducts extends HttpServlet {
     throws ServletException, IOException {
     response.setContentType("text/html;charset=UTF-8");
 
-    request.getRequestDispatcher("/menu/list_product.jsp").include(request, response);
+    list_product(request, response);
   }
 
   @Override

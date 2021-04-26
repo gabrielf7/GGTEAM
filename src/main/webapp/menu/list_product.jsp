@@ -21,7 +21,6 @@
         <table class="table table-striped">
           <thead>
             <tr>
-              <th scope="col">#</th>
               <th scope="col">Nome</th>
               <th scope="col">Descricao</th>
               <th scope="col">Categoria</th>
@@ -30,15 +29,15 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>${produto.id}</td>
-              <td>${produto.nome}</td>
-              <td>${produto.descricao}</td>
-              <td>${produto.categoria}</td>
-              <td>${produto.valor}</td>
-              <td>${produto.estoque}</td>
-            </tr>
-            <% //<c:forEach var="produto" items="${dao.produtos}"></c:forEach> %>
+            <c:forEach var="produto" items="${produtos}">
+              <tr>
+                <td><c:out value="${produto.nome}" /></td>
+                <td><c:out value="${produto.descricao}" /></td>
+                <td><c:out value="${produto.categoria}" /></td>
+                <td><c:out value="${produto.valor}" /></td>
+                <td><c:out value="${produto.estoque}" /></td>
+              </tr>
+            </c:forEach>
           </tbody>
         </table>
 

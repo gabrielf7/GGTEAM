@@ -1,25 +1,20 @@
 package com.ggteam.projetoecommerceggt.models;
 
 import java.io.Serializable;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Persistence;
 import javax.persistence.Table;
 
 /**
  *
- * @author on github * -> @gabrielf7 (JoaoGabriel) -> @jvpererinha
- * (JoaoVictorD.) -> @gustavo3g (GustavoBarros) -> @ (TallysSilva)
+ * @author on github *
+ * -> @gabrielf7 (JoaoGabriel)
+ * -> @jvpererinha (JoaoVictorD.)
+ * -> @gustavo3g (GustavoBarros)
+ * -> @ (TallysSilva)
  */
 @Entity
 @Table(name = "tab_produto")
@@ -131,7 +126,7 @@ public class Produto implements Serializable {
 
   @Override
   public String toString() {
-    return "com.ggteam.projetoecommerceggt.model.Produto[ id=" + id + " ]";
+    return "com.ggteam.projetoecommerceggt.models.Produto[ id=" + id + " ]";
   }
 
 }
