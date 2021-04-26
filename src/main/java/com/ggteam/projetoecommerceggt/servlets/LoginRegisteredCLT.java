@@ -89,6 +89,8 @@ public class LoginRegisteredCLT extends HttpServlet {
         response.sendRedirect(request.getContextPath() + "/Registered?addclt=true");
       }
 
+    } catch (IOException e) {
+      System.out.println("Erro no cadastrado de cliente: " + e.getMessage());
     } finally {
       // Fecha conexao
       if (entityManager.getTransaction().isActive()) {

@@ -56,6 +56,7 @@ public class ProductDAO {
         listarProduto.add(produto);
       }
     } catch (SQLException e) {
+      System.out.println("Erro ao listar produtos: " + e.getMessage());
     } finally {
       if (statement != null) {
         statement.close();

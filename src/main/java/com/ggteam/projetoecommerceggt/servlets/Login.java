@@ -53,7 +53,7 @@ public class Login extends HttpServlet {
         System.out.println("Error ao fazer login");
         response.sendRedirect(request.getContextPath() + "/Login?clt=false");
       } else {
-        System.out.println("Logado o CLiente");
+        System.out.println("Logado o Colaborador");
         response.sendRedirect(request.getContextPath() + "/Collaborator");
       }
     }

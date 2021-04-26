@@ -61,6 +61,8 @@ public class CadCategoria extends HttpServlet {
 
       response.sendRedirect(request.getContextPath() + "/Administrador");
 
+    } catch (IOException e) {
+      System.out.println("Erro no cadastrado de categoria: " + e.getMessage());
     } finally {
       // Fecha conexao
       if (entityManager.getTransaction().isActive()) {

@@ -46,7 +46,7 @@ public class CollaboratorDAO {
 
       return usuario;
     } catch (Exception e) {
-      System.out.println("result: " + e.getMessage());
+      System.out.println("Erro na busca do colaborador: " + e.getMessage());
       return null;
     }
   }

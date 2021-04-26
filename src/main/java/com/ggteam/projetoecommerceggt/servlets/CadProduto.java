@@ -69,6 +69,8 @@ public class CadProduto extends HttpServlet {
 
       response.sendRedirect(request.getContextPath() + "/Collaborator");
 
+    } catch (IOException e) {
+      System.out.println("Erro no cadastrado de produto: " + e.getMessage());
     } finally {
       // Fecha conexao
       if (entityManager.getTransaction().isActive()) {

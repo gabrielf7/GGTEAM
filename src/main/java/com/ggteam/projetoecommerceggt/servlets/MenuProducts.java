@@ -30,6 +30,7 @@ public class MenuProducts extends HttpServlet {
       request.setAttribute("produtos", produtos);
       request.getRequestDispatcher("menu/list_product.jsp").forward(request, response);
     } catch (IOException | SQLException | ServletException e) {
+      System.out.println("Erro na rota da lista de produtos: " + e.getMessage());
     }
   }
 

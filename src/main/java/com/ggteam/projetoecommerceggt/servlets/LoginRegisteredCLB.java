@@ -80,6 +80,8 @@ public class LoginRegisteredCLB extends HttpServlet {
         response.sendRedirect(request.getContextPath() + "/CLBRegistered?addclb=true");
       }
 
+    } catch (IOException e) {
+      System.out.println("Erro no cadastrado de colaborador: " + e.getMessage());
     } finally {
       // Fecha conexao
       if (entityManager.getTransaction().isActive()) {

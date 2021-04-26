@@ -2,6 +2,7 @@ package com.ggteam.projetoecommerceggt.bean;
 
 import com.ggteam.projetoecommerceggt.dao.ProductDAO;
 import com.ggteam.projetoecommerceggt.models.Produto;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -25,6 +26,7 @@ public class ListProductBN {
       ProductDAO pd = new ProductDAO();
       produtos = pd.listAll();
     } catch (SQLException e) {
+      System.out.println("Erro na lista de produtos: " + e.getMessage());
     }
     return produtos;
 
