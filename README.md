@@ -1,7 +1,7 @@
 <div align="center">
   <h3>GGTEAM - GOOD GAME TEAM</h3>
   
-  <img alt="Codigo Funcionando" src="https://github.com/gabrielf7/GGTEAM/blob/master/src/main/webapp/assets/user-bag.png" >
+  <img alt="Codigo Funcionando" src="https://github.com/gabrielf7/GGTEAM/blob/master/src/main/webapp/app_src/assets/user-bag.png" >
   
   <p>Projeto de Ecommerce - Feito em Java</p>
 </div>
