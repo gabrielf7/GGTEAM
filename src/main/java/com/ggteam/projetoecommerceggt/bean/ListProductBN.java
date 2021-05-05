@@ -2,7 +2,6 @@ package com.ggteam.projetoecommerceggt.bean;
 
 import com.ggteam.projetoecommerceggt.dao.ProductDAO;
 import com.ggteam.projetoecommerceggt.models.Produto;
-import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.ggteam.projetoecommerceggt.servlets;
+package com.ggteam.projetoecommerceggt.svRegistered;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -6,16 +6,19 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 // Model
 import com.ggteam.projetoecommerceggt.models.UserClient;
 
 // DAO 
 import com.ggteam.projetoecommerceggt.dao.ClientDAO;
-
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import javax.persistence.EntityManager;
+import com.ggteam.projetoecommerceggt.dao.ResourcesDAO;
 
 /**
  *
@@ -46,9 +49,9 @@ public class LoginRegisteredCLT extends HttpServlet {
 
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
+    throws ServletException, IOException, UnsupportedEncodingException {
     ClientDAO client = new ClientDAO();
-    EntityManager entityManager = client.getEntityManager();
+    ResourcesDAO createPW = new ResourcesDAO();
 
     try {
       DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
@@ -59,6 +62,7 @@ public class LoginRegisteredCLT extends HttpServlet {
       String nkname = request.getParameter("nickname_user");
       String email = request.getParameter("email_user");
       String senha = request.getParameter("senha_user");
+      senha = createPW.createPassword(senha);
       String cpf = request.getParameter("cpf_user");
       String cidade = request.getParameter("cidade_user");
       String estado = request.getParameter("estado_user");
@@ -80,9 +84,7 @@ public class LoginRegisteredCLT extends HttpServlet {
       // Verificar se o cliente ja existe no DB.
       if ( client.getIdentifyClient(email, cpf, nkname) == null ) {
         // Inicia uma transação com o banco de dados, para add novo cliente.
-        entityManager.getTransaction().begin();
-        entityManager.persist(usr_cliente);
-        entityManager.getTransaction().commit();
+        client.addClient(usr_cliente);
 
         response.sendRedirect(request.getContextPath() + "/Login");
       } else {
@@ -90,14 +92,9 @@ public class LoginRegisteredCLT extends HttpServlet {
       }
 
     } catch (IOException e) {
-      System.out.println("Erro no cadastrado de cliente: " + e.getMessage());
-    } finally {
-      // Fecha conexao
-      if (entityManager.getTransaction().isActive()) {
-        entityManager.getTransaction().rollback();
-      }
-      
-      entityManager.close();
+      System.out.println("Erro no servlet do cadastrado de cliente: " + e.getMessage());
+    } catch (NoSuchAlgorithmException ex) {
+      Logger.getLogger(LoginRegisteredCLT.class.getName()).log(Level.SEVERE, null, ex);
     }
   }
 

@@ -21,7 +21,7 @@
           <div class="form-floating">
             <input type="email" class="form-control" id="floatingInput" 
               name="email_login" placeholder="nome@exemplo.com"
-              alt="Informar o email do estudante"
+              alt="Informar o email do usuario"
               required
             />
             <label for="floatingInput">Email</label>
@@ -29,7 +29,7 @@
           <div class="form-floating">
             <input type="password" class="form-control" id="floatingPassword" 
               name="senha_login" placeholder="Recomendamos senha grande"
-              alt="Informar a senha do estudante"
+              alt="Informar a senha do usuario"
               required
             />
             <label for="floatingPassword">Senha</label>

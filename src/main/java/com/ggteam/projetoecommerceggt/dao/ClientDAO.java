@@ -31,6 +31,24 @@ public class ClientDAO {
     return entityManager;
   }
   
+  public void addClient(UserClient usr_client){
+    EntityManager entityManager = getEntityManager();
+    try {
+      // Inicia uma transação com o banco de dados, para add novo cliente.
+      entityManager.getTransaction().begin();
+      entityManager.persist(usr_client);
+      entityManager.getTransaction().commit();
+    } catch (Exception e) {
+      System.out.println("Erro no cadastrado de Cliente: " + e.getMessage());
+    } finally {
+      // Fecha conexao
+      if (entityManager.getTransaction().isActive()) {
+        entityManager.getTransaction().rollback();
+      }
+      entityManager.close();
+    }
+  }
+  
   public UserClient getIdentifyClient(String email, String cpf, String nkname){
     try {
       EntityManager entityManager = getEntityManager();
@@ -46,7 +64,6 @@ public class ClientDAO {
 
       return usuario;
     } catch (Exception e) {
-      System.out.println("Erro na busca do cliente: " + e.getMessage());
       return null;
     }
   }

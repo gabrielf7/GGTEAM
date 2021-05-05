@@ -1,4 +1,4 @@
-package com.ggteam.projetoecommerceggt.servlets;
+package com.ggteam.projetoecommerceggt.svMain;
 
 import java.io.IOException;
 import javax.servlet.ServletException;

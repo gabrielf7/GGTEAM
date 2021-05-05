@@ -23,7 +23,7 @@ public class ProductDAO {
 
   public ProductDAO() {
   }
-
+  
   public EntityManager getEntityManager() {
     //Obtém o factory a partir da unidade de persistência.
     EntityManagerFactory factory = Persistence.createEntityManagerFactory(

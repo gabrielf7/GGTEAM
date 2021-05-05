@@ -5,8 +5,9 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 // Model
-import com.ggteam.projetoecommerceggt.models.UserClient;
-import com.ggteam.projetoecommerceggt.models.UserCollaborator;
+import com.ggteam.projetoecommerceggt.models.Administrator;
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
 
 /**
  *
@@ -16,9 +17,9 @@ import com.ggteam.projetoecommerceggt.models.UserCollaborator;
  * -> @gustavo3g (GustavoBarros)
  * -> @ (TallysSilva)
  */
-public class LoginDAO {
+public class LoginAdmDAO {
 
-  public LoginDAO() {
+  public LoginAdmDAO() {
   }
   
   public EntityManager getEntityManager() {
@@ -31,41 +32,46 @@ public class LoginDAO {
 
     return entityManager;
   }
-  
-  public UserClient getUserClient(String email, String senha){
+
+  public void addAdm(String email, String senha){
+    EntityManager entityManager = getEntityManager();
+    ResourcesDAO createPW = new ResourcesDAO();
+
     try {
-      EntityManager entityManager = getEntityManager();
-
-      UserClient usuario = (UserClient) entityManager
-        .createQuery(
-          "SELECT u FROM UserClient u WHERE "
-          + "u.email = :email_sql AND u.senha = :senha_sql"
-        )
-        .setParameter("email_sql", email)
-        .setParameter("senha_sql", senha).getSingleResult();
-
-      return usuario;
-    } catch (Exception e) {
-      System.out.println("Erro na verificação do cliente no login: " + e.getMessage());
-      return null;
-    } 
+      senha = createPW.createPassword(senha);
+      Administrator usr_adm = new Administrator();
+      usr_adm.setEmail(email);
+      usr_adm.setSenha(senha);
+      
+      entityManager.getTransaction().begin();
+      entityManager.persist(usr_adm);
+      entityManager.getTransaction().commit();
+    } catch (UnsupportedEncodingException | NoSuchAlgorithmException e) {
+      System.out.println("Erro no cadastrado de Administrador: " + e.getMessage());
+    } finally {
+      // Fecha conexao
+      if (entityManager.getTransaction().isActive()) {
+        entityManager.getTransaction().rollback();
+      }
+      entityManager.close();
+    }
   }
   
-  public UserCollaborator getUserCollaborator(String email, String senha){
+  public Administrator getUserAdministrator(String email, String senha){
     try {
       EntityManager entityManager = getEntityManager();
 
-      UserCollaborator usuario = (UserCollaborator) entityManager
+      Administrator adm = (Administrator) entityManager
         .createQuery(
-          "SELECT u FROM UserCollaborator u WHERE "
-          + "u.email = :email_sql AND u.senha = :senha_sql"
+          "SELECT a FROM Administrator a WHERE "
+          + "a.email = :email_sql AND a.senha = :senha_sql"
         )
         .setParameter("email_sql", email)
         .setParameter("senha_sql", senha).getSingleResult();
 
-      return usuario;
+      return adm;
     } catch (Exception e) {
-      System.out.println("Erro na verificação do colaborador no login: " + e.getMessage());
+      System.out.println("Erro na verificação do cliente no login: " + e.getMessage());
       return null;
     } 
   }

@@ -1,4 +1,4 @@
-package com.ggteam.projetoecommerceggt.servlets;
+package com.ggteam.projetoecommerceggt.svRegistered;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -6,16 +6,19 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 // Model
 import com.ggteam.projetoecommerceggt.models.UserCollaborator;
 
 // DAO 
 import com.ggteam.projetoecommerceggt.dao.CollaboratorDAO;
-
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import javax.persistence.EntityManager;
+import com.ggteam.projetoecommerceggt.dao.ResourcesDAO;
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -40,9 +43,9 @@ public class LoginRegisteredCLB extends HttpServlet {
 
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
+    throws ServletException, IOException, UnsupportedEncodingException {
     CollaboratorDAO collaborator = new CollaboratorDAO();
-    EntityManager entityManager = collaborator.getEntityManager();
+    ResourcesDAO createPW = new ResourcesDAO();
 
     try {
       DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
@@ -54,6 +57,7 @@ public class LoginRegisteredCLB extends HttpServlet {
       String rzsocial = request.getParameter("razaosocial_user");
       String email = request.getParameter("email_user");
       String senha = request.getParameter("senha_user");
+      senha = createPW.createPassword(senha);
       
       UserCollaborator usr_collaborator = new UserCollaborator();
       usr_collaborator.setNome(nome);
@@ -71,9 +75,7 @@ public class LoginRegisteredCLB extends HttpServlet {
       // Verificar se o cliente ja existe no DB.
       if ( collaborator.getIdentifyCollaborator(email, cnpj, rzsocial) == null ) {
         // Inicia uma transação com o banco de dados, para add novo cliente.
-        entityManager.getTransaction().begin();
-        entityManager.persist(usr_collaborator);
-        entityManager.getTransaction().commit();
+        collaborator.addCollaborator(usr_collaborator);
 
         response.sendRedirect(request.getContextPath() + "/Login");
       } else {
@@ -81,14 +83,9 @@ public class LoginRegisteredCLB extends HttpServlet {
       }
 
     } catch (IOException e) {
-      System.out.println("Erro no cadastrado de colaborador: " + e.getMessage());
-    } finally {
-      // Fecha conexao
-      if (entityManager.getTransaction().isActive()) {
-        entityManager.getTransaction().rollback();
-      }
-      
-      entityManager.close();
+      System.out.println("Erro no servlet cadastrado de colaborador: " + e.getMessage());
+    } catch (NoSuchAlgorithmException ex) {
+      Logger.getLogger(LoginRegisteredCLB.class.getName()).log(Level.SEVERE, null, ex);
     }
   }
 

@@ -9,7 +9,7 @@ function getParameter(theParameter) {
   }
   return false;
 }
-let valorCLT = getParameter('clt');
+let valorCLT = getParameter('adm');
 if (valorCLT === "false") {
   let message = document.getElementById("messageErroLogin");
   message.setAttribute("class", "w-100 mt-1 btn btn-warning btn-lg");

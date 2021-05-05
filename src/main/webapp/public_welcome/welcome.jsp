@@ -107,140 +107,17 @@
 
                   <h5 id="item2">Celulares</h5>
                   <div class="card-group">
-                    <div class="card my-card">
-                      <img 
-                        src="${pageContext.request.contextPath}/app_src/assets/fone-de-ouvido-bluetooth-preto.jpg" 
-                        class="card-img-top" alt="Fone de ouvido bluetooth"
-                      />
-                      <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">
-                          Some quick example text to build on the card title 
-                          and make up the bulk of the card's content.
-                        </p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                      </div>
-                    </div>
-                    <div class="card my-card">
-                      <img 
-                        src="${pageContext.request.contextPath}/app_src/assets/fone-de-ouvido-bluetooth-preto.jpg" 
-                        class="card-img-top" alt="Fone de ouvido bluetooth"
-                      />
-                      <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">
-                          Some quick example text to build on the card title 
-                          and make up the bulk of the card's content.
-                        </p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                      </div>
-                    </div>
-                    <div class="card my-card">
-                      <img 
-                        src="${pageContext.request.contextPath}/app_src/assets/fone-de-ouvido-bluetooth-preto.jpg" 
-                        class="card-img-top" alt="Fone de ouvido bluetooth"
-                      />
-                      <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">
-                          Some quick example text to build on the card title 
-                          and make up the bulk of the card's content.
-                        </p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                      </div>
-                    </div>
+                    
                   </div>
                   
                   <h5 id="item3">Fone de Ouvido</h5>
                   <div class="card-group">
-                    <div class="card my-card">
-                      <img 
-                        src="${pageContext.request.contextPath}/app_src/assets/fone-de-ouvido-bluetooth-preto.jpg" 
-                        class="card-img-top" alt="Fone de ouvido bluetooth"
-                      />
-                      <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">
-                          Some quick example text to build on the card title 
-                          and make up the bulk of the card's content.
-                        </p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                      </div>
-                    </div>
-                    <div class="card my-card">
-                      <img 
-                        src="${pageContext.request.contextPath}/app_src/assets/fone-de-ouvido-bluetooth-preto.jpg" 
-                        class="card-img-top" alt="Fone de ouvido bluetooth"
-                      />
-                      <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">
-                          Some quick example text to build on the card title 
-                          and make up the bulk of the card's content.
-                        </p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                      </div>
-                    </div>
-                    <div class="card my-card">
-                      <img 
-                        src="${pageContext.request.contextPath}/app_src/assets/fone-de-ouvido-bluetooth-preto.jpg" 
-                        class="card-img-top" alt="Fone de ouvido bluetooth"
-                      />
-                      <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">
-                          Some quick example text to build on the card title 
-                          and make up the bulk of the card's content.
-                        </p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                      </div>
-                    </div>
+                    
                   </div>
                   
                   <h4 id="item4">Roupas</h4>
                   <div class="card-group">
-                    <div class="card my-card">
-                      <img 
-                        src="${pageContext.request.contextPath}/app_src/assets/fone-de-ouvido-bluetooth-preto.jpg" 
-                        class="card-img-top" alt="Fone de ouvido bluetooth"
-                      />
-                      <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">
-                          Some quick example text to build on the card title 
-                          and make up the bulk of the card's content.
-                        </p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                      </div>
-                    </div>
-                    <div class="card my-card">
-                      <img 
-                        src="${pageContext.request.contextPath}/app_src/assets/fone-de-ouvido-bluetooth-preto.jpg" 
-                        class="card-img-top" alt="Fone de ouvido bluetooth"
-                      />
-                      <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">
-                          Some quick example text to build on the card title 
-                          and make up the bulk of the card's content.
-                        </p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                      </div>
-                    </div>
-                    <div class="card my-card">
-                      <img 
-                        src="${pageContext.request.contextPath}/app_src/assets/fone-de-ouvido-bluetooth-preto.jpg" 
-                        class="card-img-top" alt="Fone de ouvido bluetooth"
-                      />
-                      <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">
-                          Some quick example text to build on the card title 
-                          and make up the bulk of the card's content.
-                        </p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                      </div>
-                    </div>
+                    
                   </div>
                 </div>
               </div>

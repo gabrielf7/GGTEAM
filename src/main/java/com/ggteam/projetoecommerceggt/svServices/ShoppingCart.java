@@ -1,4 +1,4 @@
-package com.ggteam.projetoecommerceggt.svMain;
+package com.ggteam.projetoecommerceggt.svServices;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -15,15 +15,19 @@ import javax.servlet.http.HttpServletResponse;
  * -> @gustavo3g (GustavoBarros)
  * -> @ (TallysSilva)
  */
-@WebServlet(name = "Collaborator", urlPatterns = {"/Collaborator"})
-public class HomeCollaborator extends HttpServlet {
+@WebServlet(name = "ShoppingCart", urlPatterns = {"/Cart"})
+public class ShoppingCart extends HttpServlet {
 
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-    response.setContentType("text/html;charset=UTF-8");
 
-    request.getRequestDispatcher("homeCollaborator/collaborator.jsp").include(request, response);
+  }
+
+  @Override
+  protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    throws ServletException, IOException {
+
   }
 
   @Override

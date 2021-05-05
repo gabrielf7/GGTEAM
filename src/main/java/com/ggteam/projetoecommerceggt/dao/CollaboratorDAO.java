@@ -31,6 +31,24 @@ public class CollaboratorDAO {
     return entityManager;
   }
   
+  public void addCollaborator(UserCollaborator usr_collaborator){
+    EntityManager entityManager = getEntityManager();
+    try {
+      // Inicia uma transação com o banco de dados, para add novo cliente.
+      entityManager.getTransaction().begin();
+      entityManager.persist(usr_collaborator);
+      entityManager.getTransaction().commit();
+    } catch (Exception e) {
+      System.out.println("Erro no cadastrado de colaborador: " + e.getMessage());
+    } finally {
+      // Fecha conexao
+      if (entityManager.getTransaction().isActive()) {
+        entityManager.getTransaction().rollback();
+      }
+      entityManager.close();
+    }
+  }
+  
   public UserCollaborator getIdentifyCollaborator(String email, String cnpj, String rzsocial){
     try {
       EntityManager entityManager = getEntityManager();
@@ -46,7 +64,6 @@ public class CollaboratorDAO {
 
       return usuario;
     } catch (Exception e) {
-      System.out.println("Erro na busca do colaborador: " + e.getMessage());
       return null;
     }
   }

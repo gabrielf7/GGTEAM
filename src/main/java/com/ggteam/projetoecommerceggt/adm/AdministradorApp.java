@@ -1,4 +1,4 @@
-package com.ggteam.projetoecommerceggt.servlets;
+package com.ggteam.projetoecommerceggt.adm;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  * -> @ (TallysSilva)
  */
 @WebServlet(name = "Administrador", urlPatterns = {"/Administrador"})
-public class AdmApp extends HttpServlet {
+public class AdministradorApp extends HttpServlet {
 
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)

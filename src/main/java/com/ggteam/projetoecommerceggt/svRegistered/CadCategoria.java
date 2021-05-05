@@ -1,4 +1,4 @@
-package com.ggteam.projetoecommerceggt.servlets;
+package com.ggteam.projetoecommerceggt.svRegistered;
 
 import java.io.IOException;
 import javax.persistence.EntityManager;

@@ -1,4 +1,4 @@
-package com.ggteam.projetoecommerceggt.servlets;
+package com.ggteam.projetoecommerceggt.svMain;
 
 import com.ggteam.projetoecommerceggt.dao.ProductDAO;
 import java.io.IOException;
