@@ -1,13 +1,9 @@
 package com.ggteam.projetoecommerceggt.dao;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
 // Model
 import com.ggteam.projetoecommerceggt.models.Administrator;
-import java.io.UnsupportedEncodingException;
-import java.security.NoSuchAlgorithmException;
 
 /**
  *
@@ -18,27 +14,14 @@ import java.security.NoSuchAlgorithmException;
  * -> @ (TallysSilva)
  */
 public class LoginAdmDAO {
+  ResourcesDAO entityM = (ResourcesDAO) new ResourcesDAO();
+  private final EntityManager entityManager = entityM.getEntityManager();
 
   public LoginAdmDAO() {
   }
-  
-  public EntityManager getEntityManager() {
-    //Obtém o factory a partir da unidade de persistência.
-    EntityManagerFactory factory = Persistence.createEntityManagerFactory(
-      "ProjetoEcommerceGGT"
-    );
-    //Cria um entity manager.
-    EntityManager entityManager = factory.createEntityManager();
-
-    return entityManager;
-  }
 
   public void addAdm(String email, String senha){
-    EntityManager entityManager = getEntityManager();
-    ResourcesDAO createPW = new ResourcesDAO();
-
     try {
-      senha = createPW.createPassword(senha);
       Administrator usr_adm = new Administrator();
       usr_adm.setEmail(email);
       usr_adm.setSenha(senha);
@@ -46,7 +29,7 @@ public class LoginAdmDAO {
       entityManager.getTransaction().begin();
       entityManager.persist(usr_adm);
       entityManager.getTransaction().commit();
-    } catch (UnsupportedEncodingException | NoSuchAlgorithmException e) {
+    } catch (Exception e) {
       System.out.println("Erro no cadastrado de Administrador: " + e.getMessage());
     } finally {
       // Fecha conexao
@@ -59,8 +42,6 @@ public class LoginAdmDAO {
   
   public Administrator getUserAdministrator(String email, String senha){
     try {
-      EntityManager entityManager = getEntityManager();
-
       Administrator adm = (Administrator) entityManager
         .createQuery(
           "SELECT a FROM Administrator a WHERE "

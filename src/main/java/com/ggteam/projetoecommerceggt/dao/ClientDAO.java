@@ -1,8 +1,6 @@
 package com.ggteam.projetoecommerceggt.dao;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
 // Model
 import com.ggteam.projetoecommerceggt.models.UserClient;
@@ -16,23 +14,13 @@ import com.ggteam.projetoecommerceggt.models.UserClient;
  * -> @ (TallysSilva)
  */
 public class ClientDAO {
+  ResourcesDAO entityM = (ResourcesDAO) new ResourcesDAO();
+  private final EntityManager entityManager = entityM.getEntityManager();
 
   public ClientDAO() {
   }
   
-  public EntityManager getEntityManager() {
-    //Obtém o factory a partir da unidade de persistência.
-    EntityManagerFactory factory = Persistence.createEntityManagerFactory(
-      "ProjetoEcommerceGGT"
-    );
-    //Cria um entity manager.
-    EntityManager entityManager = factory.createEntityManager();
-
-    return entityManager;
-  }
-  
   public void addClient(UserClient usr_client){
-    EntityManager entityManager = getEntityManager();
     try {
       // Inicia uma transação com o banco de dados, para add novo cliente.
       entityManager.getTransaction().begin();
@@ -51,8 +39,6 @@ public class ClientDAO {
   
   public UserClient getIdentifyClient(String email, String cpf, String nkname){
     try {
-      EntityManager entityManager = getEntityManager();
-
       UserClient usuario = (UserClient) entityManager
         .createQuery(
           "SELECT u FROM UserClient u WHERE "

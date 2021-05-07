@@ -1,8 +1,6 @@
 package com.ggteam.projetoecommerceggt.dao;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
 // Model
 import com.ggteam.projetoecommerceggt.models.UserCollaborator;
@@ -16,23 +14,13 @@ import com.ggteam.projetoecommerceggt.models.UserCollaborator;
  * -> @ (TallysSilva)
  */
 public class CollaboratorDAO {
+  ResourcesDAO entityM = (ResourcesDAO) new ResourcesDAO();
+  private final EntityManager entityManager = entityM.getEntityManager();
 
   public CollaboratorDAO() {
   }
   
-  public EntityManager getEntityManager() {
-    //Obtém o factory a partir da unidade de persistência.
-    EntityManagerFactory factory = Persistence.createEntityManagerFactory(
-      "ProjetoEcommerceGGT"
-    );
-    //Cria um entity manager.
-    EntityManager entityManager = factory.createEntityManager();
-
-    return entityManager;
-  }
-  
   public void addCollaborator(UserCollaborator usr_collaborator){
-    EntityManager entityManager = getEntityManager();
     try {
       // Inicia uma transação com o banco de dados, para add novo cliente.
       entityManager.getTransaction().begin();
@@ -51,8 +39,6 @@ public class CollaboratorDAO {
   
   public UserCollaborator getIdentifyCollaborator(String email, String cnpj, String rzsocial){
     try {
-      EntityManager entityManager = getEntityManager();
-
       UserCollaborator usuario = (UserCollaborator) entityManager
         .createQuery(
           "SELECT u FROM UserCollaborator u WHERE "

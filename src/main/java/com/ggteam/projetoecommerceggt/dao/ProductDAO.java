@@ -4,8 +4,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
 // Models 
@@ -20,19 +18,10 @@ import com.ggteam.projetoecommerceggt.models.Produto;
  * -> @ (TallysSilva)
  */
 public class ProductDAO {
+  ResourcesDAO entityM = (ResourcesDAO) new ResourcesDAO();
+  private final EntityManager entityManager = entityM.getEntityManager();
 
   public ProductDAO() {
-  }
-  
-  public EntityManager getEntityManager() {
-    //Obtém o factory a partir da unidade de persistência.
-    EntityManagerFactory factory = Persistence.createEntityManagerFactory(
-      "ProjetoEcommerceGGT"
-    );
-    //Cria um entity manager.
-    EntityManager entityManager = factory.createEntityManager();
-
-    return entityManager;
   }
   
   public List<Produto> listAll() throws SQLException {
@@ -40,7 +29,6 @@ public class ProductDAO {
     List<Produto> listarProduto;
     List<Produto> listarStringProduto = new ArrayList<>();
     try {
-      EntityManager entityManager = getEntityManager();
       TypedQuery query = entityManager
         .createQuery("SELECT p FROM Produto p ORDER BY p.nome ASC", Produto.class);
       

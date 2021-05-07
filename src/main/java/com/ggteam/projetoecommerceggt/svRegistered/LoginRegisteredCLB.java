@@ -8,6 +8,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 // Model
 import com.ggteam.projetoecommerceggt.models.UserCollaborator;
@@ -15,10 +19,6 @@ import com.ggteam.projetoecommerceggt.models.UserCollaborator;
 // DAO 
 import com.ggteam.projetoecommerceggt.dao.CollaboratorDAO;
 import com.ggteam.projetoecommerceggt.dao.ResourcesDAO;
-import java.io.UnsupportedEncodingException;
-import java.security.NoSuchAlgorithmException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -45,7 +45,7 @@ public class LoginRegisteredCLB extends HttpServlet {
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException, UnsupportedEncodingException {
     CollaboratorDAO collaborator = new CollaboratorDAO();
-    ResourcesDAO createPW = new ResourcesDAO();
+    ResourcesDAO srcDao = new ResourcesDAO();
 
     try {
       DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
@@ -57,7 +57,7 @@ public class LoginRegisteredCLB extends HttpServlet {
       String rzsocial = request.getParameter("razaosocial_user");
       String email = request.getParameter("email_user");
       String senha = request.getParameter("senha_user");
-      senha = createPW.createPassword(senha);
+      senha = srcDao.createPassword(senha);
       
       UserCollaborator usr_collaborator = new UserCollaborator();
       usr_collaborator.setNome(nome);
@@ -69,7 +69,10 @@ public class LoginRegisteredCLB extends HttpServlet {
       usr_collaborator.setUltimoAcesso(formato.format(dataHoje));
 
       // Verificar se os campos foram preenchidos corretamente.
-      if ( cnpj == null || email == null ) {
+      if ( 
+        (cnpj == null || email == null) ||
+        (cnpj.isEmpty() || email.isEmpty())
+      ) {
         response.sendRedirect(request.getContextPath() + "/CLBRegistered?naddclb=false");
       }
       // Verificar se o cliente ja existe no DB.

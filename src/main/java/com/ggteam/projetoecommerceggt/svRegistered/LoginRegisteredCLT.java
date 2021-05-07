@@ -51,7 +51,7 @@ public class LoginRegisteredCLT extends HttpServlet {
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException, UnsupportedEncodingException {
     ClientDAO client = new ClientDAO();
-    ResourcesDAO createPW = new ResourcesDAO();
+    ResourcesDAO srcDao = new ResourcesDAO();
 
     try {
       DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
@@ -62,7 +62,7 @@ public class LoginRegisteredCLT extends HttpServlet {
       String nkname = request.getParameter("nickname_user");
       String email = request.getParameter("email_user");
       String senha = request.getParameter("senha_user");
-      senha = createPW.createPassword(senha);
+      senha = srcDao.createPassword(senha);
       String cpf = request.getParameter("cpf_user");
       String cidade = request.getParameter("cidade_user");
       String estado = request.getParameter("estado_user");
@@ -78,7 +78,10 @@ public class LoginRegisteredCLT extends HttpServlet {
       usr_cliente.setUltimoAcesso(formato.format(dataHoje));
 
       // Verificar se os campos foram preenchidos corretamente.
-      if ( cpf == null || email == null ) {
+      if ( 
+        (cpf == null || email == null) ||
+        (cpf.isEmpty() || email.isEmpty())
+      ) {
         response.sendRedirect(request.getContextPath() + "/Registered?naddclt=false");
       }
       // Verificar se o cliente ja existe no DB.

@@ -3,6 +3,10 @@ package com.ggteam.projetoecommerceggt.dao;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 
 /**
  *
@@ -15,6 +19,17 @@ import java.security.NoSuchAlgorithmException;
 public class ResourcesDAO {
 
   public ResourcesDAO() {
+  }
+  
+  public EntityManager getEntityManager() {
+    //Obtém o factory a partir da unidade de persistência.
+    EntityManagerFactory factory = Persistence.createEntityManagerFactory(
+      "ProjetoEcommerceGGT"
+    );
+    //Cria um entity manager.
+    EntityManager entityManager = factory.createEntityManager();
+
+    return entityManager;
   }
   
   public String createPassword(String password) throws NoSuchAlgorithmException,
@@ -31,4 +46,5 @@ public class ResourcesDAO {
 
     return passwordHex;
   }
+  
 }

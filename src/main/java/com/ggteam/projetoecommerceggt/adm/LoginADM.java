@@ -1,12 +1,14 @@
 package com.ggteam.projetoecommerceggt.adm;
 
-import com.ggteam.projetoecommerceggt.dao.LoginAdmDAO;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+// DAO
+import com.ggteam.projetoecommerceggt.dao.LoginAdmDAO;
 
 /**
  *
@@ -32,15 +34,19 @@ public class LoginADM extends HttpServlet {
     throws ServletException, IOException {
     LoginAdmDAO loginIdentify = new LoginAdmDAO();
     
-    String email = request.getParameter("email_login");
-    String senha = request.getParameter("senha_login");
-    
-    if (loginIdentify.getUserAdministrator(email, senha) == null) {
-      System.out.println("Error ao fazer login");
-      response.sendRedirect(request.getContextPath() + "/dono?adm=false");
-    } else {
-      System.out.println("Logado o ADM");
-      response.sendRedirect(request.getContextPath() + "/Administrador");
+    try {
+      String email = request.getParameter("email_login");
+      String senha = request.getParameter("senha_login");
+
+      if (loginIdentify.getUserAdministrator(email, senha) == null) {
+        System.out.println("Error ao fazer login");
+        response.sendRedirect(request.getContextPath() + "/dono?adm=false");
+      } else {
+        System.out.println("Logado o ADM");
+        response.sendRedirect(request.getContextPath() + "/Administrador");
+      }
+    } catch (IOException e) {
+      System.out.println("Erro no servlet do Login do ADM: " + e.getMessage());
     }
   }
 
