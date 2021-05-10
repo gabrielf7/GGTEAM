@@ -7,9 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-// DAO
-import com.ggteam.projetoecommerceggt.dao.ResourcesDAO;
-
 /**
  *
  * @author on github *
@@ -18,20 +15,15 @@ import com.ggteam.projetoecommerceggt.dao.ResourcesDAO;
  * -> @gustavo3g (GustavoBarros)
  * -> @ (TallysSilva)
  */
-@WebServlet(name = "Client", urlPatterns = {"/Client"})
-public class HomeClient extends HttpServlet {
+@WebServlet(name = "Logout", urlPatterns = {"/Logout"})
+public class Logout extends HttpServlet {
 
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-    response.setContentType("text/html; charset=UTF-8");
-
-    ResourcesDAO srcDao = new ResourcesDAO();
-    srcDao.getLoginSession(request, response);
-    srcDao.getIncludeURL(
-      "/homeClient/client.jsp", 
-      request, response
-    );
+    // Invalida sessão e redireciona para tela principal
+    request.getSession().invalidate();
+    response.sendRedirect(request.getContextPath() + "/Welcome");
   }
 
   @Override

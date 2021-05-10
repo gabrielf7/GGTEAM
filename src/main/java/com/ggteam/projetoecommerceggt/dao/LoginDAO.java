@@ -33,7 +33,6 @@ public class LoginDAO {
 
       return usuario;
     } catch (Exception e) {
-      System.out.println("Erro na verificação do cliente no login: " + e.getMessage());
       return null;
     } 
   }
@@ -50,7 +49,6 @@ public class LoginDAO {
 
       return usuario;
     } catch (Exception e) {
-      System.out.println("Erro na verificação do colaborador no login: " + e.getMessage());
       return null;
     } 
   }

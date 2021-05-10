@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 // DAO
 import com.ggteam.projetoecommerceggt.dao.LoginAdmDAO;
+import com.ggteam.projetoecommerceggt.dao.ResourcesDAO;
 
 /**
  *
@@ -25,8 +26,12 @@ public class LoginADM extends HttpServlet {
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
     response.setContentType("text/html;charset=UTF-8");
-
-    request.getRequestDispatcher("/app_adm_7w7/adm_login/adm_login.jsp").include(request, response);
+    
+    ResourcesDAO srcDao = new ResourcesDAO();
+    srcDao.getIncludeURL(
+      "/app_adm_7w7/adm_login/adm_login.jsp", 
+      request, response
+    );
   }
 
   @Override

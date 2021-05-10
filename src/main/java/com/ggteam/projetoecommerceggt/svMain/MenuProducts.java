@@ -1,6 +1,7 @@
 package com.ggteam.projetoecommerceggt.svMain;
 
 import com.ggteam.projetoecommerceggt.dao.ProductDAO;
+import com.ggteam.projetoecommerceggt.dao.ResourcesDAO;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
@@ -27,9 +28,14 @@ public class MenuProducts extends HttpServlet {
     throws ServletException, IOException {
     try {
       ProductDAO produto = new ProductDAO();
+      ResourcesDAO srcDao = new ResourcesDAO();
+      
       List<Produto> produtos = produto.listAll();
       request.setAttribute("produtos", produtos);
-      request.getRequestDispatcher("/menu/list_product.jsp").forward(request, response);
+      srcDao.getIncludeURL(
+        "/menu/list_product.jsp", 
+        request, response
+      );
     } catch (SQLException e) {
       System.out.println("Erro na rota da lista de produtos: " + e.getMessage());
     }
@@ -39,7 +45,7 @@ public class MenuProducts extends HttpServlet {
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
     response.setContentType("text/html;charset=UTF-8");
-
+    
     list_product(request, response);
   }
 

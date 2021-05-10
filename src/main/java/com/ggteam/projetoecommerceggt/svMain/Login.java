@@ -11,6 +11,10 @@ import java.security.NoSuchAlgorithmException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+// Models
+import com.ggteam.projetoecommerceggt.models.UserClient;
+import com.ggteam.projetoecommerceggt.models.UserCollaborator;
+
 // DAO 
 import com.ggteam.projetoecommerceggt.dao.LoginDAO;
 import com.ggteam.projetoecommerceggt.dao.ResourcesDAO;
@@ -31,7 +35,12 @@ public class Login extends HttpServlet {
     throws ServletException, IOException {
     response.setContentType("text/html;charset=UTF-8");
     
-    request.getRequestDispatcher("login/login.jsp").include(request, response);
+    ResourcesDAO srcDao = new ResourcesDAO();
+    srcDao.getIdentifySessionLogin(request, response);
+    srcDao.getIncludeURL(
+      "login/login.jsp", 
+      request, response
+    );
   }
 
   @Override
@@ -45,23 +54,40 @@ public class Login extends HttpServlet {
       String senha = request.getParameter("senha_login");
       senha = srcDao.createPassword(senha);
       String conta = request.getParameter("conta_login");
+      
+      UserClient Authenticator1 = loginIdentify
+        .getUserClient(email, senha);
+      UserCollaborator Authenticator2 = loginIdentify
+        .getUserCollaborator(email, senha);
 
       if ("Pessoal".equals(conta)) {
-        if (loginIdentify.getUserClient(email, senha) == null) {
+        if (Authenticator1 == null) {
           System.out.println("Error ao fazer login");
           response.sendRedirect(request.getContextPath() + "/Login?clt=false");
         } else {
-          System.out.println("Logado o CLiente");
+          System.out.println(
+            "[Login] O cLiente de ID: "
+            +Authenticator1.getId()+" está logado."
+          );
+          request.getSession().setAttribute("IdUser", Authenticator1.getId());
+          request.getSession().setAttribute("UserName", Authenticator1.getNome());
+          request.getSession().setAttribute("Profile", "Client");
           response.sendRedirect(request.getContextPath() + "/Client");
         }
       }
 
       if ("Colaborador".equals(conta)) {
-        if (loginIdentify.getUserCollaborator(email, senha) == null) {
+        if (Authenticator2 == null) {
           System.out.println("Error ao fazer login");
           response.sendRedirect(request.getContextPath() + "/Login?clt=false");
         } else {
-          System.out.println("Logado o Colaborador");
+          System.out.println(
+            "[Login] O colaborador de ID: "
+            +Authenticator2.getId()+" está logado."
+          );
+          request.getSession().setAttribute("IdUser", Authenticator2.getId());
+          request.getSession().setAttribute("UserName", Authenticator2.getNome());
+          request.getSession().setAttribute("Profile", "Collaborator");
           response.sendRedirect(request.getContextPath() + "/Collaborator");
         }
       }

@@ -8,7 +8,9 @@
   <!-- Abre Body -->
     <%@include file="../minitemplates/mostrar_header.jsp"%>
     
-    <main></main>
+    <main>
+      <h1 class="text-center">Olá, ${UserName}. Seja bem vindo</h1>
+    </main>
     
     <div class="pt-5 text-muted text-center text-small">
       <%@include file="../minitemplates/footer.jsp"%>

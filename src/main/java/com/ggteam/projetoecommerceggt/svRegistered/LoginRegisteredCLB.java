@@ -35,15 +35,19 @@ public class LoginRegisteredCLB extends HttpServlet {
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
     response.setContentType("text/html;charset=UTF-8");
-
-    request.getRequestDispatcher(
-      "/login/register_collaborator/registered_collaborator.jsp"
-    ).include(request, response);
+    
+    ResourcesDAO srcDao = new ResourcesDAO();
+    srcDao.getIdentifySessionLogin(request, response);
+    srcDao.getIncludeURL(
+      "/login/register_collaborator/registered_collaborator.jsp", 
+      request, response
+    );
   }
 
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException, UnsupportedEncodingException {
+    request.setCharacterEncoding("UTF-8");
     CollaboratorDAO collaborator = new CollaboratorDAO();
     ResourcesDAO srcDao = new ResourcesDAO();
 

@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+// DAO
+import com.ggteam.projetoecommerceggt.dao.ResourcesDAO;
+
 /**
  *
  * @author on github *
@@ -22,8 +25,13 @@ public class HomeCollaborator extends HttpServlet {
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
     response.setContentType("text/html;charset=UTF-8");
-
-    request.getRequestDispatcher("homeCollaborator/collaborator.jsp").include(request, response);
+    
+    ResourcesDAO srcDao = new ResourcesDAO();
+    srcDao.getLoginSession(request, response);
+    srcDao.getIncludeURL(
+      "/homeCollaborator/collaborator.jsp", 
+      request, response
+    );
   }
 
   @Override

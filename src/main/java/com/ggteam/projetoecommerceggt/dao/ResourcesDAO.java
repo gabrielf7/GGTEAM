@@ -1,12 +1,18 @@
 package com.ggteam.projetoecommerceggt.dao;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
+// Models
+import javax.servlet.RequestDispatcher;
 
 /**
  *
@@ -22,14 +28,19 @@ public class ResourcesDAO {
   }
   
   public EntityManager getEntityManager() {
-    //Obtém o factory a partir da unidade de persistência.
-    EntityManagerFactory factory = Persistence.createEntityManagerFactory(
-      "ProjetoEcommerceGGT"
-    );
-    //Cria um entity manager.
-    EntityManager entityManager = factory.createEntityManager();
+    try {
+      //Obtém o factory a partir da unidade de persistência.
+      EntityManagerFactory factory = Persistence.createEntityManagerFactory(
+        "ProjetoEcommerceGGT"
+      );
+      //Cria um entity manager.
+      EntityManager entityManager = factory.createEntityManager();
 
-    return entityManager;
+      return entityManager;
+    } catch(Exception e) {
+      System.out.println("Erro na conexão do banco de dados: " + e.getMessage());
+    }
+    return null;
   }
   
   public String createPassword(String password) throws NoSuchAlgorithmException,
@@ -47,4 +58,27 @@ public class ResourcesDAO {
     return passwordHex;
   }
   
+  public void getLoginSession(HttpServletRequest request, 
+    HttpServletResponse response) throws IOException, ServletException {
+    Long id_usr = (Long) request.getSession().getAttribute("IdUser");
+    if (id_usr == null) {
+      response.sendRedirect(request.getContextPath() + "/Login");
+    }
+  }
+  
+  public void getIdentifySessionLogin(HttpServletRequest request, 
+    HttpServletResponse response) throws IOException, ServletException {
+    Long id_usr = (Long) request.getSession().getAttribute("IdUser");
+    if (id_usr != null) {
+      response.sendRedirect(request.getContextPath() + "/Welcome");
+    }
+  }
+  
+  public RequestDispatcher getIncludeURL(String url, 
+    HttpServletRequest request, HttpServletResponse response) 
+    throws ServletException, IOException {
+    RequestDispatcher urlSession = request.getRequestDispatcher(url);
+    urlSession.include(request, response);
+    return urlSession;
+  }
 }

@@ -1,5 +1,6 @@
 package com.ggteam.projetoecommerceggt.adm;
 
+import com.ggteam.projetoecommerceggt.dao.ResourcesDAO;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,8 +23,12 @@ public class AdministradorApp extends HttpServlet {
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
     response.setContentType("text/html;charset=UTF-8");
-
-    request.getRequestDispatcher("/app_adm_7w7/adm_7w7.jsp").include(request, response);
+    
+    ResourcesDAO srcDao = new ResourcesDAO();
+    srcDao.getIncludeURL(
+      "/app_adm_7w7/adm_7w7.jsp", 
+      request, response
+    );
   }
   
   @Override

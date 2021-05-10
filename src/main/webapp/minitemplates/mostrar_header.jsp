@@ -4,31 +4,31 @@
 
     <div class="container d-flex flex-wrap">
       <ul class="nav my-nav me-auto">
-        <li class="nav-item me-2">
+        <li class="nav-item">
           <a class="nav-link active" aria-current="page"
             href="${pageContext.request.contextPath}/"
           >
             Home
           </a>
         </li>
-        <li class="nav-item me-2">
+        <li class="nav-item">
           <a class="nav-link" href="${pageContext.request.contextPath}/#sobre">Sobre</a>
         </li>
-        <li class="nav-item me-2">
+        <li class="nav-item">
           <a class="nav-link" 
             href="${pageContext.request.contextPath}/Category"
           >
             Categoria
           </a>
         </li>
-        <li class="nav-item me-2">
+        <li class="nav-item">
           <a class="nav-link" 
             href="${pageContext.request.contextPath}/Product"
           >
             Produtos
           </a>
         </li>
-        <li class="nav-item me-5">
+        <li class="nav-item">
           <a class="nav-link" 
             href="${pageContext.request.contextPath}/Shop"
           >
@@ -36,22 +36,27 @@
           </a>
         </li>
       </ul>
-      <ul class="nav my-nav">
-        <li class="nav-item">
-          <a href="${pageContext.request.contextPath}/Login"
-            class="nav-link px-2" type="button" 
-          >
-            Faça Login
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="${pageContext.request.contextPath}/Registered"
-            class="nav-link px-2" type="button" 
-          >
-            Cadastra-se
-          </a>
-        </li>
-      </ul>
+      <div>
+        <ul class="nav my-nav">
+          <li class="nav-link mr-2" id="AreaUser01"></li>
+          <li class="nav-item">
+            <a href="${pageContext.request.contextPath}/Registered"
+              class="nav-link btn btn-primary pl-2 pr-2" 
+              type="button" id="AreaUser02"
+            >
+              Cadastra-se
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="${pageContext.request.contextPath}/Login"
+              class="nav-link pl-2 pr-2" 
+              type="button" id="AreaUser03"
+            >
+              Faça Login
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
 
   </nav>

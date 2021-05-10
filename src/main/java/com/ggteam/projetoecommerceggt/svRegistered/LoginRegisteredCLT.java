@@ -34,22 +34,28 @@ public class LoginRegisteredCLT extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-    response.setContentType("text/html;charset=UTF-8");
+    response.setContentType("text/html; charset=UTF-8");
+    
+    ResourcesDAO srcDao = new ResourcesDAO();
+    srcDao.getIdentifySessionLogin(request, response);
     
     if ("Collaborator".equals(request.getParameter("add"))) {
-      request.getRequestDispatcher(
-        "/login/register_collaborator/registered_collaborator.jsp"
-      ).include(request, response);
+      srcDao.getIncludeURL(
+        "/login/register_collaborator/registered_collaborator.jsp", 
+        request, response
+      );
     } else {
-      request.getRequestDispatcher(
-        "/login/register_client/registered_client.jsp"
-      ).include(request, response);
+      srcDao.getIncludeURL(
+        "/login/register_client/registered_client.jsp", 
+        request, response
+      );
     }
   }
 
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException, UnsupportedEncodingException {
+    request.setCharacterEncoding("UTF-8");
     ClientDAO client = new ClientDAO();
     ResourcesDAO srcDao = new ResourcesDAO();
 

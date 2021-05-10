@@ -1,5 +1,6 @@
 package com.ggteam.projetoecommerceggt.svMain;
 
+import com.ggteam.projetoecommerceggt.dao.ResourcesDAO;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,8 +23,12 @@ public class MenuShops extends HttpServlet {
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
     response.setContentType("text/html;charset=UTF-8");
-
-    request.getRequestDispatcher("/menu/list_shop.jsp").include(request, response);
+    
+    ResourcesDAO srcDao = new ResourcesDAO();
+    srcDao.getIncludeURL(
+      "/menu/list_shop.jsp", 
+      request, response
+    );
   }
 
   @Override
