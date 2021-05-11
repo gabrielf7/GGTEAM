@@ -97,6 +97,21 @@
                     Por favor, informe sua senha.
                   </div>
                 </div>
+                
+                <div class="col-12 pt-3 input-group">
+                  <span class="input-group-text">Localidade</span>
+                  <input type="text" aria-label="Cidade" class="form-control"
+                         name="cidade_user" placeholder="Sua cidade" 
+                         required
+                         />
+                  <input type="text" aria-label="Estado" class="form-control"
+                         name="estado_user" placeholder="Seu estado"
+                         required
+                         />
+                  <div class="invalid-feedback">
+                    Por favor, informe a sua localidade(cidade e estado).
+                  </div>
+                </div>
 
               </div>
 

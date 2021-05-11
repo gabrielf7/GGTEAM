@@ -14,10 +14,10 @@ let valorCLB = getParameter('addclb');
 let nvalorCLB = getParameter('naddclb');
 if (valorCLB === "true") {
   message.setAttribute("class", "w-100 mt-1 btn btn-warning btn-lg");
-  message.innerHTML = "Erro no cadastro, o Email, Cpf ou Razão Social já se encontra cadastrado.";
+  message.innerHTML = "Erro no cadastro, o Email, CNPJ ou Razão Social já se encontra cadastrado.";
 } else if (nvalorCLB === "false" ) {
   message.setAttribute("class", "w-100 mt-1 btn btn-danger btn-lg");
-  message.innerHTML = "Erro no cadastro, o campo Email ou Cpf está vazio.";
+  message.innerHTML = "Erro no cadastro, o campo importante do formulário está vazio.";
 }
 
 // Example starter JavaScript for disabling form submissions if there are invalid fields

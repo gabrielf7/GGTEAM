@@ -77,7 +77,7 @@
       </a>
       <form class="d-flex align-items-center col-12 col-lg-3 mb-lg-0">
         <input type="search" class="form-control me-2" placeholder="Search...">
-        <button class="btn btn-primary my-button-search p-2" type="submit">Pesquisa</button>
+        <button class="btn btn-primary my-button-search text-white p-2" type="submit">Pesquisa</button>
       </form>
 
     </div>

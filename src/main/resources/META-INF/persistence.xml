@@ -5,6 +5,7 @@
     <class>com.ggteam.projetoecommerceggt.models.Produto</class>
     <class>com.ggteam.projetoecommerceggt.models.UserClient</class>
     <class>com.ggteam.projetoecommerceggt.models.Administrator</class>
+    <class>com.ggteam.projetoecommerceggt.models.UserPerson</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/ecommerce"/>

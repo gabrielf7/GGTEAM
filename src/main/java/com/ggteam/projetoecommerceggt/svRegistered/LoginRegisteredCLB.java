@@ -62,6 +62,8 @@ public class LoginRegisteredCLB extends HttpServlet {
       String email = request.getParameter("email_user");
       String senha = request.getParameter("senha_user");
       senha = srcDao.createPassword(senha);
+      String cidade = request.getParameter("cidade_user");
+      String estado = request.getParameter("estado_user");
       
       UserCollaborator usr_collaborator = new UserCollaborator();
       usr_collaborator.setNome(nome);
@@ -70,12 +72,19 @@ public class LoginRegisteredCLB extends HttpServlet {
       usr_collaborator.setRazaosocial(rzsocial);
       usr_collaborator.setEmail(email);
       usr_collaborator.setSenha(senha);
+      usr_collaborator.setLocalidade(cidade + ", " + estado);
       usr_collaborator.setUltimoAcesso(formato.format(dataHoje));
 
       // Verificar se os campos foram preenchidos corretamente.
       if ( 
-        (cnpj == null || email == null) ||
-        (cnpj.isEmpty() || email.isEmpty())
+        (nome == null || snome == null) ||
+        (email == null || senha == null) ||
+        (cnpj == null) ||
+        (cidade == null || estado == null) ||
+        (nome.isEmpty() || snome.isEmpty()) ||
+        (email.isEmpty() || senha.isEmpty()) ||
+        (cnpj.isEmpty()) ||
+        (cidade.isEmpty() || estado.isEmpty())
       ) {
         response.sendRedirect(request.getContextPath() + "/CLBRegistered?naddclb=false");
       }

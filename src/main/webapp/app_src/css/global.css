@@ -72,17 +72,17 @@ header {
 }
 
 .my-button-search {
-  color: white;
+  color: blue;
   font-weight: lighter;
-  background: linear-gradient(180deg, --color-primary-dark 47%, white 87%);
+  background-color: linear-gradient(180deg, --color-secondary 47%);
 }
 
 .my-button-search:hover {
-  color: white;
-  background: linear-gradient(180deg, --color-primary-dark 47%, white 87%);
+  color: red;
+  background-color: linear-gradient(180deg, --color-secondary 47%);
 }
 
 /* Cards */
 .my-card {
-  width: 10rem;
+  width: 300px;
 }

@@ -17,7 +17,7 @@ if (valorCLT === "true") {
   message.innerHTML = "Erro no cadastro, o Email, Cpf ou Nickname já se encontra cadastrado.";
 } else if (nvalorCLT === "false" ) {
   message.setAttribute("class", "w-100 mt-1 btn btn-danger btn-lg");
-  message.innerHTML = "Erro no cadastro, o campo Email ou Cpf está vazio.";
+  message.innerHTML = "Erro no cadastro, o campo importante do formulário está vazio.";
 }
 
 // Example starter JavaScript for disabling form submissions if there are invalid fields

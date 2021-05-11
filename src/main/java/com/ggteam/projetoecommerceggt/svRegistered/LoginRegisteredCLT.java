@@ -80,13 +80,21 @@ public class LoginRegisteredCLT extends HttpServlet {
       usr_cliente.setEmail(email);
       usr_cliente.setSenha(senha);
       usr_cliente.setCpf(cpf);
-      usr_cliente.setLocalidade(cidade + ", " + estado);
+      if (cidade.isEmpty() && estado.isEmpty()){
+        usr_cliente.setLocalidade("vazio");
+      } else {
+        usr_cliente.setLocalidade(cidade + ", " + estado);
+      }
       usr_cliente.setUltimoAcesso(formato.format(dataHoje));
 
       // Verificar se os campos foram preenchidos corretamente.
       if ( 
-        (cpf == null || email == null) ||
-        (cpf.isEmpty() || email.isEmpty())
+        (nome == null || snome == null) ||
+        (nkname == null || email == null) ||
+        (senha == null || cpf == null) ||
+        (nome.isEmpty() || snome.isEmpty()) ||
+        (nkname.isEmpty() || email.isEmpty()) ||
+        (senha.isEmpty() || cpf.isEmpty())
       ) {
         response.sendRedirect(request.getContextPath() + "/Registered?naddclt=false");
       }

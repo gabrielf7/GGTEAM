@@ -4,9 +4,6 @@
 <%@include file="../minitemplates/abrir_page.jsp"%>
     <title> Produtos | More Shop</title>
 
-    <!-- My Scritps Remote -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
-
     <!-- My Styles -->
     <link href="${pageContext.request.contextPath}/app_src/css/global.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/app_src/css/list_product.css" rel="stylesheet">

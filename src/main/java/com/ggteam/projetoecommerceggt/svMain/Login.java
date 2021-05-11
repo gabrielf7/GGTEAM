@@ -70,7 +70,7 @@ public class Login extends HttpServlet {
             +Authenticator1.getId()+" está logado."
           );
           request.getSession().setAttribute("IdUser", Authenticator1.getId());
-          request.getSession().setAttribute("UserName", Authenticator1.getNome());
+          request.getSession().setAttribute("UserName", Authenticator1.getNickname());
           request.getSession().setAttribute("Profile", "Client");
           response.sendRedirect(request.getContextPath() + "/Client");
         }
