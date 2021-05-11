@@ -1,9 +1,6 @@
 <%@include file="/minitemplates/abrir_page.jsp"%>
     <title> Entrada | More Shop</title>
 
-    <!-- My Scritps Remote -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script> -->
-
     <!-- My Styles -->
     <link href="${pageContext.request.contextPath}/app_src/css/global.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/app_src/css/home.css" rel="stylesheet">
@@ -144,9 +141,5 @@
     <div class="text-muted text-center text-small">
       <%@include file="/minitemplates/footer.jsp"%>
     </div>
-    <!-- Scripts -->
-    <!-- <script type="text/javascript" 
-    src="${pageContext.request.contextPath}/app_src/js/chart-example.js">
-    </script> -->
   <!-- Fecha Body --> 
 <%@include file="/minitemplates/fechar_page.jsp"%>

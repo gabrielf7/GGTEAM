@@ -41,7 +41,7 @@
           <li class="nav-link mr-2" id="AreaUser01"></li>
           <li class="nav-item">
             <a href="${pageContext.request.contextPath}/Registered"
-              class="nav-link btn btn-primary pl-2 pr-2" 
+              class="nav-link btn btn-primary text-white pl-2 pr-2" 
               type="button" id="AreaUser02"
             >
               Cadastra-se
