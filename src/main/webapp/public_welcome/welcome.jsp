@@ -2,8 +2,8 @@
     <title> More Shop </title>
 
     <!-- My Styles -->
-    <link href="${pageContext.request.contextPath}/app_src/css/global.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/app_src/css/welcome.css" rel="stylesheet">
+    <link href="${css}/global.css" rel="stylesheet">
+    <link href="${css}/welcome.css" rel="stylesheet">
 
   <%@include file="../minitemplates/fechar_head.jsp"%>
   <!-- Abre Body -->
@@ -25,7 +25,7 @@
             </p>
           </div>
           <div class="col-md-5">
-            <img src="${pageContext.request.contextPath}/app_src/assets/landing.svg" 
+            <img src="${assets}/landing.svg" 
               class="mt-5 col-sm-12" alt="img background"
             />
           </div>
@@ -42,7 +42,7 @@
               </form>
             </div>
             <div class="col-6 text-center d-flex flex-row-reverse bd-highlight">
-              <nav id="navbarHorizontal" class="navbar navbar-light"> <!-- Posïção das tags -->
+              <nav id="navbarHorizontal" class="navbar navbar-light"> <!-- Posição das tags -->
                 <nav class="nav nav-pills">
                   <a class="nav-link active" href="#item1">#acessorios</a>
                   <a class="nav-link" href="#item2">#celulares</a>
@@ -54,7 +54,7 @@
           </div>
         </div>
 
-        <div class="container-fluid"><!-- Conteúdo do Scroll -->
+        <div class="container-fluid"><!-- Conteï¿½do do Scroll -->
           <div class="container">
             <div class="row">
               <div class="col-12">
@@ -70,7 +70,7 @@
                         <div class="d-flex justify-content-center">
                           <img 
                             width="224px" height="224px"
-                            src="${pageContext.request.contextPath}/app_src/assets/fone-de-ouvido-bluetooth-preto.jpg" 
+                            src="${assets}/fone-de-ouvido-bluetooth-preto.jpg" 
                             class="card-img-top" alt="Fone de ouvido bluetooth"
                           />
                         </div>

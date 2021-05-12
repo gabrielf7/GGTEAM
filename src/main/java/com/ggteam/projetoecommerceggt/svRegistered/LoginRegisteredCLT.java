@@ -37,7 +37,11 @@ public class LoginRegisteredCLT extends HttpServlet {
     response.setContentType("text/html; charset=UTF-8");
     
     ResourcesDAO srcDao = new ResourcesDAO();
-    srcDao.getIdentifySessionLogin(request, response);
+    srcDao.getIdentifySessionLogin(
+      "IdUser",
+      "/Welcome",
+      request, response
+    );
     
     if ("Collaborator".equals(request.getParameter("add"))) {
       srcDao.getIncludeURL(

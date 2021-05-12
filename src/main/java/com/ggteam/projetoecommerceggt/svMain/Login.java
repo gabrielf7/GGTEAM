@@ -36,7 +36,11 @@ public class Login extends HttpServlet {
     response.setContentType("text/html;charset=UTF-8");
     
     ResourcesDAO srcDao = new ResourcesDAO();
-    srcDao.getIdentifySessionLogin(request, response);
+    srcDao.getIdentifySessionLogin(
+      "IdUser",
+      "/Welcome",
+      request, response
+    );
     srcDao.getIncludeURL(
       "login/login.jsp", 
       request, response
@@ -72,6 +76,8 @@ public class Login extends HttpServlet {
           request.getSession().setAttribute("IdUser", Authenticator1.getId());
           request.getSession().setAttribute("UserName", Authenticator1.getNickname());
           request.getSession().setAttribute("Profile", "Client");
+          request.getSession().setAttribute("MyUrl", "MyShopping");
+          request.getSession().setAttribute("MyUrlName", "Minhas Compras");
           response.sendRedirect(request.getContextPath() + "/Client");
         }
       }
@@ -88,6 +94,8 @@ public class Login extends HttpServlet {
           request.getSession().setAttribute("IdUser", Authenticator2.getId());
           request.getSession().setAttribute("UserName", Authenticator2.getNome());
           request.getSession().setAttribute("Profile", "Collaborator");
+          request.getSession().setAttribute("MyUrl", "MyProducts");
+          request.getSession().setAttribute("MyUrlName", "Meus Produtos");
           response.sendRedirect(request.getContextPath() + "/Collaborator");
         }
       }

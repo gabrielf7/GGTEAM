@@ -2,14 +2,14 @@
     <title> Entrada | More Shop</title>
 
     <!-- My Styles -->
-    <link href="${pageContext.request.contextPath}/app_src/css/global.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/app_src/css/home.css" rel="stylesheet">
+    <link href="${css}/global.css" rel="stylesheet">
+    <link href="${css}/collaborator.css" rel="stylesheet">
 
   <%@include file="/minitemplates/fechar_head.jsp"%>
   <!-- Abre Body -->
     <%@include file="/minitemplates/mostrar_header.jsp"%>
     <main class="container my_container_main mt-3">
-      <h1 class="text-center">Olá, ${UserName}. Seja bem vindo</h1>
+      <h1 class="text-center">Olá ${UserName}, seja bem vindo.</h1>
       <div class="row">
         <div class="col-lg-5 col-sm-12">
 
@@ -24,7 +24,7 @@
 
         <div class="col-lg-7">
           <img class="mt-5 col-sm-12" 
-            src="${pageContext.request.contextPath}/app_src/assets/landing.svg" 
+            src="${assets}/landing.svg" 
             alt="img background" 
           />
         </div>
@@ -39,15 +39,13 @@
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title">Novo Produto</h5>
-              <button type="button" class="close" 
-                data-bs-dismiss="modal" aria-label="Close"
-              >
-                <i class="far fa-times-circle text-white" aria-hidden="true"></i>
+              <button type="button" class="btn-close" 
+                data-bs-dismiss="modal" aria-label="Close">
               </button>
 
             </div>
             <div class="modal-body">
-              <form action="${pageContext.request.contextPath}/CadProduto" 
+              <form action="${ctx}/CadProduto" 
                 method="POST"
               >
                 <div class="form-group">

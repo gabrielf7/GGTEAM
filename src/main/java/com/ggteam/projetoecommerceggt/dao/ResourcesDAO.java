@@ -58,19 +58,21 @@ public class ResourcesDAO {
     return passwordHex;
   }
   
-  public void getLoginSession(HttpServletRequest request, 
-    HttpServletResponse response) throws IOException, ServletException {
-    Long id_usr = (Long) request.getSession().getAttribute("IdUser");
+  public void getLoginSession(String idUser, String url,
+    HttpServletRequest request, HttpServletResponse response) 
+    throws IOException, ServletException {
+    Long id_usr = (Long) request.getSession().getAttribute(idUser);
     if (id_usr == null) {
-      response.sendRedirect(request.getContextPath() + "/Login");
+      response.sendRedirect(request.getContextPath() + url);
     }
   }
   
-  public void getIdentifySessionLogin(HttpServletRequest request, 
-    HttpServletResponse response) throws IOException, ServletException {
-    Long id_usr = (Long) request.getSession().getAttribute("IdUser");
+  public void getIdentifySessionLogin(String idUser, String url,
+    HttpServletRequest request, HttpServletResponse response) 
+    throws IOException, ServletException {
+    Long id_usr = (Long) request.getSession().getAttribute(idUser);
     if (id_usr != null) {
-      response.sendRedirect(request.getContextPath() + "/Welcome");
+      response.sendRedirect(request.getContextPath() + url);
     }
   }
   

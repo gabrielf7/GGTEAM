@@ -2,14 +2,14 @@
     <title> More Shop </title>
 
     <!-- My Styles -->
-    <link href="${pageContext.request.contextPath}/app_src/css/global.css" rel="stylesheet">
+    <link href="${css}/global.css" rel="stylesheet">
     
   <%@include file="../minitemplates/fechar_head.jsp"%>
   <!-- Abre Body -->
     <%@include file="../minitemplates/mostrar_header.jsp"%>
     
     <main>
-      <h1 class="text-center">Olá, ${UserName}. Seja bem vindo</h1>
+      <h1 class="text-center">Olá ${UserName}, seja bem vindo.</h1>
     </main>
     
     <div class="pt-5 text-muted text-center text-small">

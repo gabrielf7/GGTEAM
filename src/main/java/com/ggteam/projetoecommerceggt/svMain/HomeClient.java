@@ -27,7 +27,11 @@ public class HomeClient extends HttpServlet {
     response.setContentType("text/html; charset=UTF-8");
 
     ResourcesDAO srcDao = new ResourcesDAO();
-    srcDao.getLoginSession(request, response);
+    srcDao.getLoginSession(
+      "IdUser",
+      "/Login",
+      request, response
+    );
     srcDao.getIncludeURL(
       "/homeClient/client.jsp", 
       request, response

@@ -2,8 +2,8 @@
     <title> Cadastar | More Shop </title>
 
     <!-- My Styles -->
-    <link href="${pageContext.request.contextPath}/app_src/css/global.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/app_src/css/registered_client.css" rel="stylesheet">
+    <link href="${css}/global.css" rel="stylesheet">
+    <link href="${css}/registered_client.css" rel="stylesheet">
 
   <%@include file="../../minitemplates/fechar_head.jsp"%>
   <!-- Abre Body -->
@@ -12,14 +12,14 @@
       <div class="container">
         <div class="row g-2">
           <div class="col-md-5 col-lg-5 h-50 d-flex justify-content-center">
-            <img src="${pageContext.request.contextPath}/app_src/assets/user-bag.png" />
+            <img src="${assets}/user-bag.png" />
           </div>
           <div class="col-md-7 col-lg-7">
             
             <div class="mt-4 d-flex justify-content-between">
               <h2 class="mt-1 p-0">Crie sua conta</h2>
               <a class="mb-3 pl-3 pr-3 btn btn-primary btn-lg" 
-                href="${pageContext.request.contextPath}/Registered"
+                href="${ctx}/Registered"
               >
                 Crie uma conta pessoal
               </a>
@@ -30,7 +30,7 @@
             <p id="messageErroCadastro"></p>
             
             <form name="FormUsuario"
-              action="${pageContext.request.contextPath}/CLBRegistered" 
+              action="${ctx}/CLBRegistered" 
               method="POST"
               class="needs-validation"
             >
@@ -68,7 +68,7 @@
                     Razão social
                   </label>
                   <input type="text" class="form-control" id="razaoSocial" 
-                    name="razaosocial_user" placeholder="Seu razão social"
+                    name="razaosocial_user" placeholder="Sua razão social"
                     required 
                   />
                   <div class="invalid-feedback">
@@ -129,6 +129,6 @@
 
     </main>
     <!-- My Script -->
-    <script src="${pageContext.request.contextPath}/app_src/js/registered_collaborator.js"></script>
+    <script src="${js}/registered_collaborator.js"></script>
   <!-- Fecha Body -->
 <%@include file="../../minitemplates/fechar_page.jsp"%>

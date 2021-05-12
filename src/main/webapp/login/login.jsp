@@ -2,8 +2,8 @@
     <title> Entrar | More Shop </title>
     
     <!-- My Styles -->
-    <link href="${pageContext.request.contextPath}/app_src/css/global.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/app_src/css/login.css" rel="stylesheet">
+    <link href="${css}/global.css" rel="stylesheet">
+    <link href="${css}/login.css" rel="stylesheet">
 
   <%@include file="../minitemplates/fechar_head.jsp"%>
   <!-- Abre Body -->
@@ -12,7 +12,7 @@
 
       <div class="form-signin">
         <form id="formulario" method="POST" name="formulario"
-          action="${pageContext.request.contextPath}/Login"
+          action="${ctx}/Login"
         >
           <h1 class="h3 mb-3 fw-normal">Por favor, faça login</h1>
 
@@ -60,7 +60,7 @@
           <button class="w-100 btn btn-lg btn-primary" type="submit">
             Fazer Logon
           </button>
-          <a href="${pageContext.request.contextPath}/Registered">
+          <a href="${ctx}/Registered">
             Está de fora? cadastra-se aqui...
           </a>
           <div class="pt-5 text-muted text-center text-small">
@@ -71,6 +71,6 @@
 
     </main>
     <!-- My Script -->
-    <script src="${pageContext.request.contextPath}/app_src/js/login.js"></script>
+    <script src="${js}/login.js"></script>
   <!-- Fecha Body -->
 <%@include file="../minitemplates/fechar_page.jsp"%>

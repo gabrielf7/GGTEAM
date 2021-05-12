@@ -1,2 +1,4 @@
 </head>
-<body onload="carregar(`${UserName}`, `${Profile}`)">
+<body onload="carregar(`${UserName}`, `${Profile}`, `${MyUrl}`, 
+  `${MyUrlName}`
+)">

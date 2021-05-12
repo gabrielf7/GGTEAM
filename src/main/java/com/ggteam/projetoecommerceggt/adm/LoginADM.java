@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+// Models
+import com.ggteam.projetoecommerceggt.models.Administrator;
+
 // DAO
 import com.ggteam.projetoecommerceggt.dao.LoginAdmDAO;
 import com.ggteam.projetoecommerceggt.dao.ResourcesDAO;
@@ -28,6 +31,11 @@ public class LoginADM extends HttpServlet {
     response.setContentType("text/html;charset=UTF-8");
     
     ResourcesDAO srcDao = new ResourcesDAO();
+    srcDao.getIdentifySessionLogin(
+      "IdUser",
+      "/Administrador",
+      request, response
+    );
     srcDao.getIncludeURL(
       "/app_adm_7w7/adm_login/adm_login.jsp", 
       request, response
@@ -42,12 +50,18 @@ public class LoginADM extends HttpServlet {
     try {
       String email = request.getParameter("email_login");
       String senha = request.getParameter("senha_login");
+      
+      Administrator AuthenticatorADM = loginIdentify
+        .getUserAdministrator(email, senha);
 
-      if (loginIdentify.getUserAdministrator(email, senha) == null) {
+      if (AuthenticatorADM == null) {
         System.out.println("Error ao fazer login");
         response.sendRedirect(request.getContextPath() + "/dono?adm=false");
       } else {
         System.out.println("Logado o ADM");
+        request.getSession().setAttribute("IdUser", AuthenticatorADM.getId());
+        request.getSession().setAttribute("UserName", AuthenticatorADM.getEmail());
+        request.getSession().setAttribute("Profile", "Administrador");
         response.sendRedirect(request.getContextPath() + "/Administrador");
       }
     } catch (IOException e) {

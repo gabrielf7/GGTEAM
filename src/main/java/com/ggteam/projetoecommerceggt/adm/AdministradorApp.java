@@ -25,6 +25,11 @@ public class AdministradorApp extends HttpServlet {
     response.setContentType("text/html;charset=UTF-8");
     
     ResourcesDAO srcDao = new ResourcesDAO();
+    srcDao.getLoginSession(
+      "IdUser",
+      "/dono",
+      request, response
+    );
     srcDao.getIncludeURL(
       "/app_adm_7w7/adm_7w7.jsp", 
       request, response

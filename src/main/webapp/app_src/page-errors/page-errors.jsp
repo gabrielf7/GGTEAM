@@ -1,17 +1,24 @@
-<%@include file="../minitemplates/abrir_page.jsp"%>
+<%@include file="../../minitemplates/abrir_page.jsp"%>
     <title> More Shop </title>
 
     <!-- My Styles -->
-    <link href="${pageContext.request.contextPath}/app_src/css/global.css" rel="stylesheet">
+    <link href="${css}/global.css" rel="stylesheet">
     
-  <%@include file="../minitemplates/fechar_head.jsp"%>
+  <%@include file="../../minitemplates/fechar_head.jsp"%>
   <!-- Abre Body -->
-    <%@include file="../minitemplates/mostrar_header.jsp"%>
+    <%@include file="../../minitemplates/mostrar_header.jsp"%>
     
-    <main></main>
+    <main class="d-flex flex-wrap justify-content-center" style="margin: 100px 100px">
+      <section>
+        <h2>Error de status ${statusCode},</h2>
+      </section>
+      <section>
+        <p>Motivo: ${messageError}</p>
+      </section>
+    </main>
     
     <div class="pt-5 text-muted text-center text-small">
-      <%@include file="../minitemplates/footer.jsp"%>
+      <%@include file="../../minitemplates/footer.jsp"%>
     </div>
   <!-- Fecha Body -->
-<%@include file="../minitemplates/fechar_page.jsp"%>
+<%@include file="../../minitemplates/fechar_page.jsp"%>

@@ -76,7 +76,7 @@ cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js"></script>
 
 <!-- Scripts -->
 <!-- <script type="text/javascript" 
-    src="${pageContext.request.contextPath}/app_src/js/chart-example.js">
+    src="${js}/chart-example.js">
 </script> -->
 
  */

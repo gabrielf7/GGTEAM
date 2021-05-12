@@ -2,8 +2,8 @@
     <title> _Entrar_ </title>
     
     <!-- My Styles -->
-    <link href="${pageContext.request.contextPath}/app_src/css/global.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/app_adm_7w7/adm_login/adm_login.css" rel="stylesheet">
+    <link href="${css}/global.css" rel="stylesheet">
+    <link href="${ctx}/app_adm_7w7/adm_login/adm_login.css" rel="stylesheet">
 
   <%@include file="../../minitemplates/fechar_head.jsp"%>
   <!-- Abre Body -->
@@ -11,7 +11,7 @@
 
       <div class="form-signin">
         <form id="formulario" method="POST" name="formulario"
-          action="${pageContext.request.contextPath}/dono"
+          action="${ctx}/dono"
         >
           <h1 class="h3 mb-3 fw-normal">Por favor, faça login</h1>
 
@@ -46,6 +46,6 @@
 
     </main>
     <!-- My Script -->
-    <script src="${pageContext.request.contextPath}/app_adm_7w7/adm_login/adm_login.js"></script>
+    <script src="${ctx}/app_adm_7w7/adm_login/adm_login.js"></script>
   <!-- Fecha Body -->
 <%@include file="../../minitemplates/fechar_page.jsp"%>

@@ -37,7 +37,11 @@ public class LoginRegisteredCLB extends HttpServlet {
     response.setContentType("text/html;charset=UTF-8");
     
     ResourcesDAO srcDao = new ResourcesDAO();
-    srcDao.getIdentifySessionLogin(request, response);
+    srcDao.getIdentifySessionLogin(
+      "IdUser",
+      "/Welcome",
+      request, response
+    );
     srcDao.getIncludeURL(
       "/login/register_collaborator/registered_collaborator.jsp", 
       request, response
