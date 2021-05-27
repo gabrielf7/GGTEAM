@@ -8,14 +8,17 @@
 
 ## Recursos
  
-  - Log in to enter the platform.
-  - Register client on the platform.
-  - ...
+   - Faz login para entrar na plataforma.
+   - Faz uso de criptográfia no login.
+   - Faz cadastrado de cliente e colaborador na plataforma.
+   - Faz compras com carrinhos.
+   - ...
 
 ## Criador
-Create by 
-|_ [@gabrielf7](https://github.com/gabrielf7) :green_heart: :bird:
-|_ ...
+
+  1. _[@gabrielf7](https://github.com/gabrielf7) :shopping_cart:
+  2. _[@gustavo3g](https://github.com/gustavo3g) :shopping_cart:
+  3. ...
 
 ## Licença
 
