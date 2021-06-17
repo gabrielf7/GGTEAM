@@ -66,7 +66,7 @@
                     <h4 id="item1 mb-3">Acessórios</h4>
 
                     <div class="card-group" style="width: 250px;">
-                      <div class="card">
+                      <div class="card"> 
                         <div class="d-flex justify-content-center">
                           <img 
                             width="224px" height="224px"
@@ -74,30 +74,76 @@
                             class="card-img-top" alt="Fone de ouvido bluetooth"
                           />
                         </div>
+                            <form action="${ctx}/Shop" method="POST">
+                                <input hidden type="text" name="carrinho_fone" value="fone de ouvido" >
 
-                        <div class="card-body">
-                          <h1 class="card-title pricing-card-title">
-                            R$ 150<small class="text-muted fw-light">,90</small>
-                          </h1>
-                          <p>6x 25 sem juros</p>
+                            
+                                <div class="card-body">
+                                    <h1 class="card-title pricing-card-title">
+                                      R$ 150<small class="text-muted fw-light">,90</small>
+                                    </h1>
+                                    <p>6x 25 sem juros</p>
 
-                          <div class="d-flex justify-content-between">
-                            <a href="#" type="button" class="btn btn-primary">Comprar</a>
-                            <a href="#" type="button" class="btn btn-primary">Add Carrinho</a>
-                          </div>
-                          <hr />
-                          <p class="card-text">
-                            Fone de Ouvido com bloqueador de som externo.
-                          </p>
-                        </div>
+                                    <div class="d-flex justify-content-between">
+                                      <a href="#" type="button" class="btn btn-primary mr-2">Comprar</a>
+                                      <button class="btn btn-primary ml-4" type="submit">Adicionar ao carrinho </button>
+                                  
+                                      
+                                    
+                                    </div>
+                                    <hr />
+                                    <p class="card-text">
+                                      Fone de Ouvido com bloqueador de som externo.
+                                    </p>
+                                </div>
+                            </form>
+                            
+                        
                       </div>
+                                
+                                
                     </div>
                   </section>
-
+                                <br><br><br>
                   <section>
                     <h5 id="item2">Celulares</h5>
-                    <div class="card-group">
+                    <div class="card-group" style="width: 250px;">
+                        
+                        <div class="card"> 
+                        <div class="d-flex justify-content-center">
+                          <img 
+                            width="224px" height="224px"
+                            src="${assets}/smartphone-xiaomi.png" 
+                            class="card-img-top" alt="Fone de ouvido bluetooth"
+                          />
+                        </div>
+                            <form action="${ctx}/Shop" method="POST">
+                                <input hidden type="text" name="carrinho_celular" value="Xiaomi Redmi note 9" >
 
+                            
+                                <div class="card-body">
+                                    <h1 class="card-title pricing-card-title">
+                                      R$ 150<small class="text-muted fw-light">,90</small>
+                                    </h1>
+                                    <p>6x 25 sem juros</p>
+
+                                    <div class="d-flex justify-content-between">
+                                      <a href="#" type="button" class="btn btn-primary mr-2">Comprar</a>
+                                      <button class="btn btn-primary ml-4" type="submit">Adicionar ao carrinho </button>
+                                  
+                                      
+                                    
+                                    </div>
+                                    <hr />
+                                    <p class="card-text">
+                                      Fone de Ouvido com bloqueador de som externo.
+                                    </p>
+                                </div>
+                            </form>
+                            
+                        
+                      </div>
+                        
                     </div>
                   </section>
                   
