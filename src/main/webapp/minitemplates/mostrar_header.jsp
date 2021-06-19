@@ -32,7 +32,7 @@
           <a class="nav-link" 
             href="${ctx}/Shop"
           >
-            Carrinho
+            Lojas
           </a>
         </li>
       </ul>
