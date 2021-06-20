@@ -1,5 +1,5 @@
 <%@include file="../../minitemplates/abrir_page.jsp"%>
-    <title> Cadastar | More Shop </title>
+    <title> Cadastrar | More Shop </title>
 
     <!-- My Styles -->
     <link href="${css}/global.css" rel="stylesheet">
