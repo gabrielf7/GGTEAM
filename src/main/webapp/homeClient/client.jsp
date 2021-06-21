@@ -12,9 +12,10 @@
     <main>      
       <div class="container">
         <div class="row">
-          <div class="col-3 h-50 d-flex flex-column justify-content-center">
-            <a type="button" href="${ctx}/ClientEdit" class="btn btn-outline-secondary">Editar perfil</a>
-            <a type="button" class="btn btn-outline-secondary">Histórico</a>
+          <div class="col-3 mt-5 h-50 d-flex flex-column justify-content-center">
+            <a type="button" href="${ctx}/ClientEdit?usr=${IdUser}" class="btn btn-outline-secondary">Editar perfil</a>
+            <a type="button" href="${ctx}/MyShopping" class="btn btn-outline-secondary">Minhas Compras</a>
+            <a type="button" href="${ctx}/MyShopping" class="btn btn-outline-secondary">Histórico</a>
             <a type="button" href="${ctx}/Logout" class="btn btn-outline-secondary">Sair</a>
           </div>
           <div class="col-9">

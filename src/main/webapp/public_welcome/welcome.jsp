@@ -54,7 +54,7 @@
           </div>
         </div>
 
-        <div class="container-fluid"><!-- Conteï¿½do do Scroll -->
+        <div class="container-fluid"><!-- Conteúdo do Scroll -->
           <div class="container">
             <div class="row">
               <div class="col-12">
@@ -94,7 +94,7 @@
                     </div>
                   </section>
 
-                  <section>
+                  <!-- <section>
                     <h5 id="item2">Celulares</h5>
                     <div class="card-group">
 
@@ -113,7 +113,7 @@
                     <div class="card-group">
 
                     </div>
-                  </section>
+                  </section> -->
                 </div>
               </div>
             </div>
@@ -127,10 +127,11 @@
           <h3 id="sobre" class="text-center mb-5">Sobre</h3>
           <div class="col-lg-4">
             IMAGE
-            <h2>Autor 01</h2>
-            <p>Some representative placeholder content for the three columns 
-              of text below the carousel. This is the first column.</p>
-            <p><a class="btn btn-secondary" href="#">View details</a></p>
+            <h2>João Gabriel</h2>
+            <p>Olá, sou Desenvolvedor Front End e entusiasta de Tecnologia. 
+              Deixo aqui meu lema, "Melhor professor, o fracasso é." 
+              - Com o tempo saberá.</p>
+            <p><a class="btn btn-secondary" href="https://github.com/gabrielf7">View details</a></p>
           </div>
           <!-- /.col-lg-4 -->
           <div class="col-lg-4">

@@ -84,11 +84,8 @@ public class LoginRegisteredCLT extends HttpServlet {
       usr_cliente.setEmail(email);
       usr_cliente.setSenha(senha);
       usr_cliente.setCpf(cpf);
-      if (cidade.isEmpty() && estado.isEmpty()){
-        usr_cliente.setLocalidade("vazio");
-      } else {
-        usr_cliente.setLocalidade(cidade + ", " + estado);
-      }
+      usr_cliente.setCidade(cidade);
+      usr_cliente.setEstado(estado);
       usr_cliente.setUltimoAcesso(formato.format(dataHoje));
 
       // Verificar se os campos foram preenchidos corretamente.

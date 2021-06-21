@@ -76,7 +76,8 @@ public class LoginRegisteredCLB extends HttpServlet {
       usr_collaborator.setRazaosocial(rzsocial);
       usr_collaborator.setEmail(email);
       usr_collaborator.setSenha(senha);
-      usr_collaborator.setLocalidade(cidade + ", " + estado);
+      usr_collaborator.setCidade(cidade);
+      usr_collaborator.setEstado(estado);
       usr_collaborator.setUltimoAcesso(formato.format(dataHoje));
 
       // Verificar se os campos foram preenchidos corretamente.
