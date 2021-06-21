@@ -37,8 +37,11 @@ public class UserPerson implements Serializable {
   @Column(name="senhaUser", nullable=false, unique=false)
   private String senha;
   
-  @Column(name="localidadeUser", nullable=false, unique=false)
-  private String localidade;
+  @Column(name="cidadeUser", nullable=false, unique=false)
+  private String cidade;
+  
+  @Column(name="estadoUser", nullable=false, unique=false)
+  private String estado;
   
   @Column(name="ultimoAcesso", unique=true)
   private String ultimoAcesso;
@@ -46,13 +49,15 @@ public class UserPerson implements Serializable {
   public UserPerson() {
   }
 
-  public UserPerson(Long id, String nome, String sobrenome, String email, String senha, String localidade, String ultimoAcesso) {
+  public UserPerson(Long id, String nome, String sobrenome, String email, 
+    String senha, String cidade, String estado, String ultimoAcesso) {
     this.id = id;
     this.nome = nome;
     this.sobrenome = sobrenome;
     this.email = email;
     this.senha = senha;
-    this.localidade = localidade;
+    this.cidade = cidade;
+    this.estado = estado;
     this.ultimoAcesso = ultimoAcesso;
   }
 
@@ -96,12 +101,20 @@ public class UserPerson implements Serializable {
     this.senha = senha;
   }
 
-  public String getLocalidade() {
-    return localidade;
+  public String getCidade() {
+    return cidade;
   }
 
-  public void setLocalidade(String localidade) {
-    this.localidade = localidade;
+  public void setCidade(String cidade) {
+    this.cidade = cidade;
+  }
+
+  public String getEstado() {
+    return estado;
+  }
+
+  public void setEstado(String estado) {
+    this.estado = estado;
   }
 
   public String getUltimoAcesso() {

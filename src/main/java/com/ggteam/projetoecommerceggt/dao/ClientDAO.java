@@ -37,6 +37,23 @@ public class ClientDAO {
     }
   }
   
+  public void updateClient(UserClient usr_client){
+    try {
+      // Inicia uma transação com o banco de dados, para add novo cliente.
+      entityManager.getTransaction().begin();
+      entityManager.merge(usr_client);
+      entityManager.getTransaction().commit();
+    } catch (Exception e) {
+      System.out.println("Erro ao atualizar o cadastrado de Cliente: " + e.getMessage());
+    } finally {
+      // Fecha conexao
+      if (entityManager.getTransaction().isActive()) {
+        entityManager.getTransaction().rollback();
+      }
+      entityManager.close();
+    }
+  }
+  
   public UserClient getIdentifyClient(String email, String cpf, String nkname){
     try {
       UserClient usuario = (UserClient) entityManager
@@ -47,6 +64,20 @@ public class ClientDAO {
         .setParameter("email_sql", email)
         .setParameter("cpf_sql", cpf)
         .setParameter("nkname_sql", nkname).getSingleResult();
+
+      return usuario;
+    } catch (Exception e) {
+      return null;
+    }
+  }
+  
+  public UserClient getClientID(int idUser){
+    try {
+      UserClient usuario = (UserClient) entityManager
+        .createQuery(
+          "SELECT u FROM UserClient u WHERE u.id = :id_sql"
+        )
+        .setParameter("id_sql", idUser).getSingleResult();
 
       return usuario;
     } catch (Exception e) {
