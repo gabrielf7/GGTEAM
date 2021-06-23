@@ -67,52 +67,54 @@ public class HomeClientEdit extends HttpServlet {
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException, UnsupportedEncodingException {
     request.setCharacterEncoding("UTF-8");
-    ClientDAO client = new ClientDAO();
-    ResourcesDAO srcDao = new ResourcesDAO();
     String acao = request.getParameter("acao");
     String idusr = request.getParameter("usr");
 
     try {
-      DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-      LocalDateTime dataHoje = LocalDateTime.now();
-      
-      String nome = request.getParameter("nome_user");
-      String snome = request.getParameter("sobrenome_user");
-      String nkname = request.getParameter("nickname_user");
-      String email = request.getParameter("email_user");
-      String senha = request.getParameter("senha_user");
-      senha = srcDao.createPassword(senha);
-      String cpf = request.getParameter("cpf_user");
-      String cidade = request.getParameter("cidade_user");
-      String estado = request.getParameter("estado_user");
-
-      UserClient usr_cliente = new UserClient();
-      usr_cliente.setId(Long.parseLong(idusr));
-      usr_cliente.setNome(nome);
-      usr_cliente.setSobrenome(snome);
-      usr_cliente.setNickname(nkname);
-      usr_cliente.setEmail(email);
-      usr_cliente.setSenha(senha);
-      usr_cliente.setCpf(cpf);
-      usr_cliente.setCidade(cidade);
-      usr_cliente.setEstado(estado);
-      usr_cliente.setUltimoAcesso(formato.format(dataHoje));
-
-      // Verificar se os campos foram preenchidos corretamente.
-      if ( 
-        (nome == null || snome == null) ||
-        (nkname == null || email == null) ||
-        (senha == null || cpf == null) ||
-        (nome.isEmpty() || snome.isEmpty()) ||
-        (nkname.isEmpty() || email.isEmpty()) ||
-        (senha.isEmpty() || cpf.isEmpty())
-      ) {
-        response.sendRedirect(request.getContextPath() + "/ClientEdit?naddclt=false");
-      }
-      
       if (acao.equals("atualizar")) {
-        client.updateClient(usr_cliente);
-        response.sendRedirect(request.getContextPath() + "/ClientEdit?usr=" + idusr);
+        ClientDAO client = new ClientDAO();
+        ResourcesDAO srcDao = new ResourcesDAO();
+        
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        LocalDateTime dataHoje = LocalDateTime.now();
+
+        String nome = request.getParameter("nome_user");
+        String snome = request.getParameter("sobrenome_user");
+        String nkname = request.getParameter("nickname_user");
+        String email = request.getParameter("email_user");
+        String senha = request.getParameter("senha_user");
+        senha = srcDao.createPassword(senha);
+        String cpf = request.getParameter("cpf_user");
+        String cidade = request.getParameter("cidade_user");
+        String estado = request.getParameter("estado_user");
+
+        UserClient usr_cliente = new UserClient();
+        usr_cliente.setId(Long.parseLong(idusr));
+        usr_cliente.setNome(nome);
+        usr_cliente.setSobrenome(snome);
+        usr_cliente.setNickname(nkname);
+        usr_cliente.setEmail(email);
+        usr_cliente.setSenha(senha);
+        usr_cliente.setCpf(cpf);
+        usr_cliente.setCidade(cidade);
+        usr_cliente.setEstado(estado);
+        usr_cliente.setUltimoAcesso(formato.format(dataHoje));
+
+        // Verificar se os campos foram preenchidos corretamente.
+        if ( 
+          (nome == null || snome == null) ||
+          (nkname == null || email == null) ||
+          (senha == null || cpf == null) ||
+          (nome.isEmpty() || snome.isEmpty()) ||
+          (nkname.isEmpty() || email.isEmpty()) ||
+          (senha.isEmpty() || cpf.isEmpty())
+        ) {
+          response.sendRedirect(request.getContextPath() + "/ClientEdit?naddclt=false");
+        } else {
+          client.updateClient(usr_cliente);
+          response.sendRedirect(request.getContextPath() + "/ClientEdit?usr=" + idusr);
+        }
+        
       } else {
         response.sendRedirect(request.getContextPath() + "/Welcome");
       }
