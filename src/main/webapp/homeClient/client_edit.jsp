@@ -81,7 +81,6 @@
                   <label for="senha" class="form-label">Senha</label>
                   <input type="password" class="form-control" id="senha" 
                     name="senha_user" placeholder="Sua senha"
-                    value="${perfil.senha}"
                     required 
                   />
                   <div class="invalid-feedback">
