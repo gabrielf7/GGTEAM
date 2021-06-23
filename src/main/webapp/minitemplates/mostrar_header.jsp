@@ -21,7 +21,16 @@
             Categoria
           </a>
         </li>
+        
         <li class="nav-item">
+          <a class="nav-link" 
+            href="${ctx}/Cart"
+          >
+            Carrinho
+          </a>
+        </li>
+        
+         <li class="nav-item">
           <a class="" 
             href="#"
             id="AreaUser00"

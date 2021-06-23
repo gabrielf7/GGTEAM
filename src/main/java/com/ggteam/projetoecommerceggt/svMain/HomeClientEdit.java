@@ -113,8 +113,8 @@ public class HomeClientEdit extends HttpServlet {
         } else {
           client.updateClient(usr_cliente);
           response.sendRedirect(request.getContextPath() + "/ClientEdit?usr=" + idusr);
-        }
-        
+        }   
+
       } else {
         response.sendRedirect(request.getContextPath() + "/Welcome");
       }

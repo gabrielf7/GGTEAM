@@ -56,59 +56,88 @@
 
         <div class="container-fluid"><!-- Conteúdo do Scroll -->
           <div class="container">
+           
             <div class="row">
               <div class="col-12">
                 <div data-spy="scroll" data-target="#navbarHorizontal" 
                   id="navText" data-offset="0" 
                   class="scrollspySite border-left border-dark border-3 m p-3"
                 >
-                  <section class="mb-2">
-                    <h4 id="item1 mb-3">Acessórios</h4>
+                    <section class="mb-2">
+                        <h4 id="item1 mb-3">Acessórios</h4>
 
-                    <div class="card-group" style="width: 250px;">
-                      <div class="card">
-                        <div class="d-flex justify-content-center">
-                          <img 
-                            width="224px" height="224px"
-                            src="${assets}/fone-de-ouvido-bluetooth-preto.jpg" 
-                            class="card-img-top" alt="Fone de ouvido bluetooth"
-                          />
-                        </div>
+                        <div class="card-group" style="width: 250px;">
+                          <div class="card">
+                            <div class="d-flex justify-content-center">
+                              <img 
+                                width="224px" height="224px"
+                                src="${assets}/fone de ouvido.jpg" 
+                                class="card-img-top" alt="Fone de ouvido bluetooth"
+                              />
+                            </div>
 
-                        <div class="card-body">
-                          <h1 class="card-title pricing-card-title">
-                            R$ 150<small class="text-muted fw-light">,90</small>
-                          </h1>
-                          <p>6x 25 sem juros</p>
+                            <div class="card-body">
+                              <h1 class="card-title pricing-card-title">
+                                R$ 150<small class="text-muted fw-light">,90</small>
+                              </h1>
+                              <p>6x 25 sem juros</p>
 
-                          <div class="d-flex justify-content-between">
-                            <a href="#" type="button" class="btn btn-primary">Comprar</a>
-                            <a href="#" type="button" class="btn btn-primary">Add Carrinho</a>
+                              <div class="d-flex justify-content-between">
+                                <a href="#" type="button" class="btn btn-primary">Comprar</a>
+                                <a href="${ctx}/Cart?add_car=fone+de+ouvido" type="button" class="btn btn-primary">Add Carrinho</a>
+                              </div>
+                              <hr />
+                              <p class="card-text">
+                                Fone de Ouvido com bloqueador de som externo.
+                              </p>
+                              
+                            </div>
                           </div>
-                          <hr />
-                          <p class="card-text">
-                            Fone de Ouvido com bloqueador de som externo.
-                          </p>
                         </div>
-                      </div>
-                    </div>
-                  </section>
-
-                  <!-- <section>
+                     
+                    </section>
+                              <br><br>
+                    <section>
                     <h5 id="item2">Celulares</h5>
-                    <div class="card-group">
+                        <div class="card-group">
+                            <div class="card-group" style="width: 250px;">
+                          <div class="card">
+                            <div class="d-flex justify-content-center">
+                              <img 
+                                width="224px" height="224px"
+                                src="${assets}/smartphone.jpg" 
+                                class="card-img-top" alt="Smartphone"
+                              />
+                            </div>
 
-                    </div>
-                  </section>
+                            <div class="card-body">
+                              <h1 class="card-title pricing-card-title">
+                                R$ 1500<small class="text-muted fw-light">,90</small>
+                              </h1>
+                              <p>6x 25 sem juros</p>
+
+                              <div class="d-flex justify-content-between">
+                                <a href="#" type="button" class="btn btn-primary">Comprar</a>
+                                <a href="${ctx}/Cart?add_car=smartphone" type="button" class="btn btn-primary">Add Carrinho</a>
+                              </div>
+                              <hr />
+                              <p class="card-text">
+                                Smartphone Xiaomi
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                    </section>
                   
-                  <section>
+<!--                  <section>
                     <h5 id="item3">Fone de Ouvido</h5>
                     <div class="card-group">
 
                     </div>
                   </section>
                   
-                  <section>
+                 <section>
                     <h5 id="item4">Roupas</h5>
                     <div class="card-group">
 
@@ -126,20 +155,25 @@
         <div class="row">
           <h3 id="sobre" class="text-center mb-5">Sobre</h3>
           <div class="col-lg-4">
-            IMAGE
+            <img 
+                src="https://avatars.githubusercontent.com/u/63380935?v=4"
+                width="100px" height="100px"     
+              >
             <h2>João Gabriel</h2>
             <p>Olá, sou Desenvolvedor Front End e entusiasta de Tecnologia. 
               Deixo aqui meu lema, "Melhor professor, o fracasso é." 
               - Com o tempo saberá.</p>
-            <p><a class="btn btn-secondary" href="https://github.com/gabrielf7">View details</a></p>
+            <p><a class="btn btn-secondary"  target="__blank" href="https://github.com/gabrielf7">View details</a></p>
           </div>
           <!-- /.col-lg-4 -->
           <div class="col-lg-4">
-            IMAGE
-            <h2>Autor 02</h2>
-            <p>Another exciting bit of representative placeholder content. 
-              This time, we've moved on to the second column.</p>
-            <p><a class="btn btn-secondary" href="#">View details</a></p>
+              <img 
+                src="https://avatars.githubusercontent.com/u/49046342?v=4"
+                width="100px" height="100px"     
+              >
+            <h2>Gustavo Barros</h2>
+            <p>Desenvolvedor Backend Apaixonado por tecnologia.</p>
+            <p><a class="btn btn-secondary" target="__blank" href="https://github.com/gustavo3g">View details</a></p>
           </div>
           <!-- /.col-lg-4 -->
           <div class="col-lg-4">
