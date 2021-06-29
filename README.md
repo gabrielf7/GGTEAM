@@ -21,4 +21,4 @@
 
 ## Licença
 
-This project is licensed under the GNU [General Public License v3.0](https://github.com/gabrielf7/GGTEAM/blob/master/LICENSE) - see the file for details.
+This project is licensed under the GNU [General Public License v2.0](https://github.com/gabrielf7/GGTEAM-Ecommerce-MoreShop/blob/master/LICENSE) - see the file for details.
