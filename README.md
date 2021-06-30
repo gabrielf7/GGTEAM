@@ -14,6 +14,9 @@
 - [x] Faz uso de lista na categoria.
 - [x] Faz compras com carrinhos.
 
+## Wiki
+Para saber mais sobre o projeto, [Acesse aqui](https://github.com/gabrielf7/GGTEAM-Ecommerce-MoreShop/wiki).
+
 ## Criador
 
   1. _[@gabrielf7](https://github.com/gabrielf7) :shopping_cart:
