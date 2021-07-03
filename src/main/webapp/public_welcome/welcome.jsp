@@ -36,9 +36,9 @@
         <div class="container">
           <div class="row">
             <div class="col-6 text-center">
-              <form class="d-flex align-items-center">
-                <input type="search" class="form-control" placeholder="Search...">
-                <button class="my-button-search p-2" type="submit">Pesquisa</button>
+              <form class="d-flex">
+                <input type="search" class="form-control w-75 my-input-search" placeholder="Pesquisa...">
+                <button class="my-button-search btn btn-primary" type="submit">Ok</button>
               </form>
             </div>
             <div class="col-6 text-center d-flex flex-row-reverse bd-highlight">
@@ -154,35 +154,28 @@
         <!-- Three columns of text below the carousel -->
         <div class="row">
           <h3 id="sobre" class="text-center mb-5">Sobre</h3>
-          <div class="col-lg-4">
+          <div class="col-lg-6 text-center">
             <img 
                 src="https://avatars.githubusercontent.com/u/63380935?v=4"
                 width="100px" height="100px"     
-              >
+            />
             <h2>João Gabriel</h2>
-            <p>Olá, sou Desenvolvedor Front End e entusiasta de Tecnologia. 
+            <p class="description">Olá, sou Desenvolvedor Front End e entusiasta de Tecnologia. 
               Deixo aqui meu lema, "Melhor professor, o fracasso é." 
               - Com o tempo saberá.</p>
             <p><a class="btn btn-secondary"  target="__blank" href="https://github.com/gabrielf7">View details</a></p>
           </div>
-          <!-- /.col-lg-4 -->
-          <div class="col-lg-4">
-              <img 
+          <!-- /.col-lg-6 -->
+          <div class="col-lg-6 text-center">
+            <img 
                 src="https://avatars.githubusercontent.com/u/49046342?v=4"
                 width="100px" height="100px"     
-              >
+            />
             <h2>Gustavo Barros</h2>
-            <p>Desenvolvedor Backend Apaixonado por tecnologia.</p>
+            <p class="description">Desenvolvedor Backend Apaixonado por tecnologia.</p>
             <p><a class="btn btn-secondary" target="__blank" href="https://github.com/gustavo3g">View details</a></p>
           </div>
-          <!-- /.col-lg-4 -->
-          <div class="col-lg-4">
-            IMAGE
-            <h2>Autor 03</h2>
-            <p>And lastly this, the third column of representative placeholder content.</p>
-            <p><a class="btn btn-secondary" href="#">View details</a></p>
-          </div>
-          <!-- /.col-lg-4 -->
+          <!-- /.col-lg-6 -->
         </div>
         <!-- /.row -->
 
