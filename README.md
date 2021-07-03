@@ -11,11 +11,14 @@
 - [x] Faz login para entrar na plataforma.
 - [x] Faz uso de criptográfia na senha de login.
 - [x] Faz cadastrado de cliente e colaborador na plataforma.
-- [x] Faz uso de lista na categoria.
+- [x] Faz uso de lista no menu de categoria.
 - [x] Faz compras com carrinhos.
 
 ## Wiki
-Para saber mais sobre o projeto, [Acesse aqui](https://github.com/gabrielf7/GGTEAM-Ecommerce-MoreShop/wiki).
+Para saber mais sobre o projeto, [acesse aqui](https://github.com/gabrielf7/GGTEAM-Ecommerce-MoreShop/wiki).
+
+## Divulgação
+Veja a publicação desse repositório no Linkedin. [Clique aqui](https://www.linkedin.com/feed/update/urn:li:ugcPost:6817070694040391680/).
 
 ## Criador
 
